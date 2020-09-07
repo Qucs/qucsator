@@ -2,6 +2,7 @@
 -- README
 -- 
 -- Copyright (C) 2003, 2004, 2005, 2006, 2011 Stefan Jahn <stefan@lkcc.org>
+--               2011 -- 2020 Qucs Team
 -- 
 -- This is free software; you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -38,12 +39,12 @@ Installation
 
 Unpack the distribution tarball:
 
-    $ tar xvzf qucs-core-<version>.tar.gz               (using GNU tar)
-    $ gzip -cd qucs-core-<version>.tar.gz | tar xvf -   (using another tar)
-  
+    $ tar xvzf qucsator-<version>.tar.gz               (using GNU tar)
+    $ gzip -cd qucsator-<version>.tar.gz | tar xvf -   (using another tar)
+
 Change into the source directory:
 
-    $ cd qucs-core-<version>
+    $ cd qucsator-<version>
 
 Configure the source package for your system:
 
@@ -67,15 +68,12 @@ file INSTALL included in this distribution.
 Please note:  Users of the FreeBSD OS may use a GNU make (probably gmake)
 to compile and install the package.
 
-Getting the latest SVN snapshot
-===============================
+Getting the latest development version
+======================================
 
-You can always get the latest Qucsator version from our SVN
-repository.  Please use an official release if you want to work with
-Qucsator.  The SVN version might not even compile.
+You can always get the current Qucsator version from our repository.
 
-    $ svn co https://qucs.svn.sourceforge.net/svnroot/qucs/trunk/qucs-core
+    $ git clone https://github.com/Qucs/qucsator
+    $ cd qucsator
 
-Press 'Enter' when asked for a password.  Run `sh bootstrap' and
-`configure' with the appropriate options.  Maintainance currently
-requires Autoconf version 2.57 and GNU automake 1.7.0.
+Run `sh bootstrap' before `configure' with the appropriate options.

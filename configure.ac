@@ -224,7 +224,7 @@ AC_ARG_WITH(macosx-sdk,
 
 AC_ARG_WITH(macosx-version-min-required,
     AS_HELP_STRING([--with-macosx-version-min-required],
-	[set the minimum OS version needed to run the built Qucs-core])
+	[set the minimum OS version needed to run the built Qucsator])
     [
 			  Usage:     --with-macosx-version-min-required=<version>
 
@@ -235,7 +235,7 @@ AC_ARG_WITH(macosx-version-min-required,
 
 AC_ARG_WITH(macosx-version-max-allowed,
     AS_HELP_STRING([--with-macosx-version-max-allowed],
-	[set the maximum allowed OS version the Qucs-core compilation can use APIs from])
+	[set the maximum allowed OS version the Qucsator compilation can use APIs from])
     [
 			  Usage:     --with-macosx-version-max-allowed=<version>
 

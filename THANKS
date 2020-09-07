@@ -17,7 +17,9 @@
 -- Boston, MA 02110-1301, USA.  
 --
 
-Here are listed all the hackers who helped creating this package:
+Here are listed some of the hackers who helped creating this package. For the
+definite list of contributors please consider the history of the public code
+repository.
 
 Michael Margraf <Michael.Margraf@alumni.TU-Berlin.DE> for having the
 	initial idea of writing a free circuit simulator.  Thanks for

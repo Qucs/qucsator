@@ -26,22 +26,66 @@ files.
 Version 0.0.20
 --------------
 
- * follow changes in Qucs / maintenance release
+ * Switching back to stand-alone qucsator package.
+ * Fix parser fail on big S-parameter files.
+   Tested with up to 100 ports with 1000 frequency points. ([#789])
+ * Fix propagation of initial solution to non-linear components. ([PR#206])
+ * Expand number of branches on equation defined device (EDD) to 20 sections. ([#658])
+ * Fix bug on polar() function ([#704])
+ * Fix crash when using glibc-2.26 ([#710])
+ * Fix crash in sortChildAnalyses, avoid removing from list while traversing. ([PR#712])
+ * Fix AC and SP sweep with a single value and Type=list ([#211])
+ * [NEW] add smooth() function, similar to what is often used in VNAs
+   to remove some noise from group delay measurements. ([PR#747])
+ * [NEW] add groupdelay(S) function, returns the delay group between ports 1 and 2,
+   and groupdelay(S, P2, P1) does the same but for ports P2 and P1. ([PR#751])
+ * [NEW] N-port S-parameters de-embedding ([PR#693])
 
 Version 0.0.19
 --------------
 
- * follow changes in Qucs / maintenance release
+ * Fix segmentation fault during noise enabled S-parameter simulation ([#133])
+ * Fix regression on tswitch component ([#34], [PR#203])
+ * Fix coplanar waveguide formulae ([SF#183], [PR#306])
+ * Fix several segmentation faults during fuzzed input ([PR#274])
+ * Remove null and free checks ([PR#267])
+ * Adopt to standard library in several classes.
+ * Enable gcov for coverage
+ * Fix S-parameters renormalization formula ([PR#481])
+ * Remove non-GPL Verilog-AMS models ([#421])
+ * Several fixes concerning rectangular waveguides ([PR#349])
+ * Correct CPW formulae in QucsTranscalc and qucsator ([PR#306])
+ * Fix regression on EDD component ([#296])
+ * Fix several segmentation faults, caught by AFL (american fuzzy lop) ([PR#274])
+ * Fix excess phase calculations on BJT device ([PR#493])
+ * Fix regression on SVD calculation ([PR#493])
+ * Fix turn off behavior of thyristor device when reversed biased ([PR#493])
+ * Require automake 1.12 for .ypp->.hpp rules ([PR#515])
+ * Disable parallel build of Verilo-A modules, temporary fix to avoid race condition ([PR#575])
 
 Version 0.0.18
 --------------
 
- * follow changes in Qucs / maintenance release
+ * new: Refactoring of Qucsator namespace. Most of the core functions are under the namespace `qucs::`
+ * new: Allow to run autotest by adding bugon/assert operator
+ * new: initial support for unit testing with googletest.
+ * new: added a Python scripts for parsing Qucs data files
+ * fix: enable BJT models with (Vtf < 0)
+ * new: Dynamic compilation and loading of Verilog-A modules (beta feature).
+   Addition of a full ADMS/Qucs "turn key" Verilog-A compact device modelling system to
+   Qucs. Users are no longer required to manually edit C++ code and the build system
+   to be able to run Verilog-A models. Uses ADMS 2.3.4 (only a subset of Verilog-A is supported).
+ * fix: Spice file handling and translator
+ * new: Addition of BSIM 3 and BSIM 4 models to Qucs MOS models.
+ * new: Release of the first model (RFresistor) in a new series of RF models for Harmonic Balance
+   and other forms of Qucs simulation.
+ * new: HICUM npn and pnp Level 0 V1.3 Verilog-A devices.
+ * new: HICUM npn level 2 V2.32 Verilog-A device.
 
 Version 0.0.17
 --------------
 
- * follow changes in Qucs / maintenance release
+ * unknown release
 
 Version 0.0.16
 --------------
@@ -56,14 +100,14 @@ Version 0.0.15
 --------------
 
  * matrix power operation in equation solver
- * introduced global nodes (e.g. subst!) in the analogue simulator 
+ * introduced global nodes (e.g. subst!) in the analogue simulator
  * translation of polynomial C's and L's in spice converter
  * translation of F, H, E and G polynomial spice sources
  * many new digital primitives in Verilog-A
  * allowing variables in constant parameter simulation boxes
  * existing HICUM models can now be converter by the qucsconv command
    line tool into library elements
- * allowing property references inside the same	instance of a component
+ * allowing property references inside the same instance of a component
  * new components: rectangular waveguide, digital buffer, microstrip
    radial stub, RLCG transmission line
  * added noise figure property to amplifier model

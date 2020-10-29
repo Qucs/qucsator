@@ -1,38 +1,38 @@
--- 
--- README
--- 
+--
+-- Qucsator
+--
 -- Copyright (C) 2003, 2004, 2005, 2006, 2011 Stefan Jahn <stefan@lkcc.org>
 --               2011 -- 2020 Qucs Team
--- 
+--
 -- This is free software; you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation; either version 2, or (at your option)
 -- any later version.
--- 
+--
 -- This software is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
+--
 -- You should have received a copy of the GNU General Public License
 -- along with this package; see the file COPYING.  If not, write to
 -- the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor,
--- Boston, MA 02110-1301, USA.  
+-- Boston, MA 02110-1301, USA.
 --
 
 
 Description
 ===========
 
-Qucsator is a command line circuit simulator.  It takes a network
-list in a certain format as input and outputs a Qucs dataset.  It has
-been programmed for usage in the Qucs project but can also be used by
-other applications.
+Qucsator is a command line driven circuit simulator.  It takes a network list
+in a certain format as input and outputs a Qucs dataset.  It has been
+programmed for usage in the Qucs project but can also be used by other
+applications.
 
 Requirements
 ============
 
-Currently there are no dependencies on other software projects.
+Adms is required to translate some component parts. Tested with 2.3.6.
 
 Installation
 ============
@@ -50,16 +50,16 @@ Configure the source package for your system:
 
     $ ./configure
 
-Now compile the package:
+Now compile the package. Note that parallel build is broken at the moment.
 
     $ make
 
-Install Qucsator:
+Install Qucsator. This is optional.
 
     $ make install
 
 You must have root privileges if you want to install the package in the
-standard location (/usr/local) or in any location that is only writable 
+standard location (/usr/local) or in any location that is only writable
 by root.
 
 For further information on installing the package, please consult the

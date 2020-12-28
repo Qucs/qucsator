@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Qucsator
+Exec=qucsator %U
+Icon=qucsator
+Terminal=false
+
+Type=Application
+Categories=Education;Electronics;
+StartupNotify=false

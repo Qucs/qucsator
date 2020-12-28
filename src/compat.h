@@ -29,10 +29,10 @@
 # include <ieeefp.h>
 #endif
 
-#if !HAVE_STRCHR
-# define strchr  index
-# define strrchr rindex
-#endif
+//#if !HAVE_STRCHR
+//# define strchr  index
+//# define strrchr rindex
+//#endif
 
 #if defined(_WIN32) & not defined(__MINGW32__)
 #define strcasecmp stricmp

@@ -27,6 +27,9 @@
 
 #include <assert.h>
 
+#include "tvector.h"
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 template <class nr_type_t>

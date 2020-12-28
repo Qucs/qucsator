@@ -28,6 +28,8 @@
 // BUG: include all component headers.
 // components should add to the kernel, not the other way around.
 
+#include "config.h"
+
 #include "complex.h"
 #include "object.h"
 #include "node.h"
@@ -151,6 +153,8 @@
 #include "digital/digisource.h"
 #include "digital/buffer.h"
 
+#ifdef USE_VERILOG
+
 #include "verilog/EKV26MOS.core.h"
 #include "verilog/log_amp.core.h"
 #include "verilog/MESFET.core.h"
@@ -190,6 +194,8 @@
 #include "verilog/comp_4bit.core.h"
 #include "verilog/hpribin4bit.core.h"
 #include "verilog/vcresistor.core.h"
+
+#endif
 
 #include "ecvs.h"
 

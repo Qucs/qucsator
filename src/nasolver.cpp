@@ -59,6 +59,10 @@
 #include "nasolver.h"
 #include "constants.h"
 
+#ifndef MAX
+# define MAX(x,y) (((x) > (y)) ? (x) : (y))
+#endif
+
 namespace qucs {
 
 // Constructor creates an unnamed instance of the nasolver class.

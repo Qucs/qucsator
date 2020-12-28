@@ -29,8 +29,8 @@
 
 # ~~~
 
-project(qucs-core CXX)
-cmake_minimum_required(VERSION 2.6)
+project(qucsator CXX)
+cmake_minimum_required(VERSION 3.16)
 
 # ignore the project() managed VERSION (new in CMake 3.0)
 if(POLICY CMP0048)
@@ -38,10 +38,10 @@ if(POLICY CMP0048)
 endif(POLICY CMP0048)
 
 
-# otherwise qucsator cannot generate qucsdefs.h
-add_definitions(-DDEBUG)
+## otherwise qucsator cannot generate qucsdefs.h
+#add_definitions(-DDEBUG)
 
-# defines nr_double_t
+## defines nr_double_t
 add_definitions(-DHAVE_CONFIG_H)
 
 # ~~~
@@ -49,42 +49,41 @@ add_definitions(-DHAVE_CONFIG_H)
 # OPTION(ENABLE_QUCSLIB "enable qucslib build, default: OFF")
 # OPTION(ENABLE_DOUBLE " type of double representation, default=double")
 
-# TODO configure debug/release flags
+## TODO configure debug/release flags
 
-# TODO check flags used on Autotools are needed:
-#
-# -pipe : Use pipes rather than temporary files for communication between the
-# various stages of compilation.
-#
-# https://blog.mozilla.org/nnethercote/2011/01/18/the-dangers-of-fno-exceptions/
-# -fno-exceptions option is used, which means that exception-handling is
-# disabled.
-#
-# -fno-rtti :  Disable generation of information about every class with virtual
-# functions.
-#
-# -fno-check-new : specific to GCC
-#
-# -Wmissing-prototypes : Warn if a global function is defined without a previous
-# prototype declaration.
-#
-# ~~~
+## TODO check flags used on Autotools are needed:
+##
+## -pipe : Use pipes rather than temporary files for communication between the
+## various stages of compilation.
+##
+## https://blog.mozilla.org/nnethercote/2011/01/18/the-dangers-of-fno-exceptions/
+## -fno-exceptions option is used, which means that exception-handling is
+## disabled.
+##
+## -fno-rtti :  Disable generation of information about every class with virtual
+## functions.
+##
+## -fno-check-new : specific to GCC
+##
+## -Wmissing-prototypes : Warn if a global function is defined without a previous
+## prototype declaration.
+##
+## ~~~
 
 # use top VERSION file
-file(STRINGS ${qucs-core_SOURCE_DIR}/VERSION QUCS_VERSION)
+file(STRINGS ${qucsator_SOURCE_DIR}/VERSION QUCS_VERSION)
 message(STATUS "Configuring ${PROJECT_NAME}: VERSION ${QUCS_VERSION}")
 
+# directed to config.h, so these definitions are available in the code
 set(PROJECT_VERSION "${QUCS_VERSION}")
-
 set(PROJECT_VENDOR "Qucs team. This program is licensed under the GNU GPL")
-
 set(QUCS_URL "https://sf.net/p/qucs")
 set(QUCS_BUGREPORT "qucs-bugs@lists.sourceforge.net")
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsconv.1.cmake.in
-               ${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsconv.1)
+	${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsconv.1)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsator.1.cmake.in
-               ${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsator.1)
+	${CMAKE_CURRENT_SOURCE_DIR}/doc/qucsator.1)
 
 # use last git commit hash along the version
 set(GIT unknown)
@@ -92,20 +91,18 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/../.git)
   find_package(Git)
   # Get the latest abbreviated commit hash of the working branch
   execute_process(
-    COMMAND ${GIT_EXECUTABLE} log --pretty=format:%h -n 1u
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE GIT_COMMIT_HASH)
-  set(GIT ${GIT_COMMIT_HASH})
-  message(STATUS "Found Git repository, last commit hash: ${GIT}")
+	  COMMAND ${GIT_EXECUTABLE} log --pretty=format:%h -n 1u
+	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+	OUTPUT_VARIABLE GIT_COMMIT_HASH)
+set(GIT ${GIT_COMMIT_HASH})
+message(STATUS "Found Git repository, last commit hash: ${GIT}")
 endif()
-
-# TODO rename the above variables? Project/Package?
 
 # Define to the address where bug reports for this package should be sent.
 set(PACKAGE_BUGREPORT "qucs-bugs@lists.sourceforge.net")
 
 # Define to the full name of this package.
-set(PACKAGE_NAME "qucs-core")
+set(PACKAGE_NAME "qucsator")
 
 # Define to the full name and version of this package.
 set(PACKAGE_STRING "${PACKAGE_NAME} ${PROJECT_VERSION}")
@@ -118,19 +115,8 @@ set(PACKAGE_URL "http://sourceforge.net/projects/qucs/")
 
 # Define to the version of this package.
 set(PACKAGE_VERSION ${PROJECT_VERSION})
-
-#
-# Avoid source tree pollution
-#
-if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
-  message(
-    FATAL_ERROR
-      "\nIn-source builds are not permitted.
-                       Make a separate folder for building:
-                       $ mkdir build; cd build; cmake ..
-                       Before that, remove the files already created:
-                       $ rm -rf CMakeCache.txt CMakeFiles")
-endif()
+# add compiler definitions/symbols
+add_compile_definitions(PACKAGE_VERSION="${PACKAGE_VERSION}")
 
 #
 # Set locations of CMake modules, used on tests, find,...
@@ -138,72 +124,16 @@ endif()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 #
-# Need Flex
+# Avoid source tree pollution
 #
-find_package(FLEX 2.5.9 REQUIRED)
-if(FLEX_FOUND)
-endif()
-
-# ~~~
-# Need Bison
-#
-# This is a HACK to get arround a PATH issue with Qt Creator on OSX.
-# It seams impossible to pass a custom PATH to Qt Creator on OSX, ie, cannot prepend `/usr/local/bin/` for intance.
-# The FIND_PACKAGE fails. For now we provide a fallback with a custom FIND_PROGRAM.
-# The variable BISON_DIR is also available.
-# ~~~
-if(WIN32)
-  find_package(BISON 2.4 REQUIRED)
-else() # Linux, OSX
-  # use -DBISON_DIR=/path/ to provide the path to bison
-  find_program(
-    BISON_EXECUTABLE bison
-    PATHS /usr/local/bin/ /opt/local/bin/ /usr/bin ${BISON_DIR}
-    DOC "bison path"
-    NO_DEFAULT_PATH)
-  if(BISON_EXECUTABLE)
-    message(STATUS "Found bison: " ${BISON_EXECUTABLE})
-  else()
-    message(
-      FATAL_ERROR "Unable to find bison. Try to provide -DBISON_DIR=[path]")
-  endif()
-endif()
-
-#
-# Check for sed
-#
-find_program(SED_TOOL NAMES sed)
-if(NOT SED_TOOL)
-  message(FATAL_ERROR "Unable to find sed")
-else()
-  message(STATUS "Found sed: " ${SED_TOOL})
-endif()
-
-#
-# Check for gperf
-#
-find_program(GPERF_TOOL NAMES gperf)
-if(NOT GPERF_TOOL)
-  message(FATAL_ERROR "gperf required in PATH")
-else()
-  message(STATUS "Found gperf: " ${GPERF_TOOL})
-endif()
-
-#
-# Check if admsXml is available
-#
-# * Use -DADMSXML_DIR=[path] to give the path containing admsXml
-# * Try a few othe locations
-#
-find_program(
-  ADMSXML admsXml
-  HINTS ${ADMSXML_DIR}
-  PATHS /usr/local/bin/ /opt/local/bin/ /usr/bin
-  DOC "admsXml application")
-if(NOT ADMSXML)
-  message(FATAL_ERROR "admsXml required in PATH")
-else()
-  message(STATUS "Found admsXml: " ${ADMSXML})
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+  message(
+	  FATAL_ERROR
+	"\nIn-source builds are not permitted.
+	  Make a separate folder for building:
+	  $ mkdir build; cd build; cmake ..
+	  Before that, remove the files already created:
+	  $ rm -rf CMakeCache.txt CMakeFiles")
 endif()
 
 #
@@ -262,10 +192,10 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 # Compiler-specific C++11 activation.
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
   execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion
-                  OUTPUT_VARIABLE GCC_VERSION)
+	  OUTPUT_VARIABLE GCC_VERSION)
   if(NOT (GCC_VERSION VERSION_GREATER 4.7 OR GCC_VERSION VERSION_EQUAL 4.7))
-    message(FATAL_ERROR "${PROJECT_NAME} requires g++ 4.7 or greater.")
-  endif()
+	  message(FATAL_ERROR "${PROJECT_NAME} requires g++ 4.7 or greater.")
+endif()
 elseif("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 else()
@@ -277,7 +207,7 @@ endif()
 #
 if(UNIX AND NOT APPLE)
   if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+	  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
   endif()
 endif()
 
@@ -291,11 +221,11 @@ add_subdirectory(doc)
 # Custom uninstall target
 #
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/uninstall.cmake.in"
-               "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake" IMMEDIATE @ONLY)
+	"${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake" IMMEDIATE @ONLY)
 
 add_custom_target(
-  uninstall-core COMMAND ${CMAKE_COMMAND} -P
-                        ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake)
+  uninstall-qucsator COMMAND ${CMAKE_COMMAND} -P
+  ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake)
 
 # TODO install distributables EXTRA_DIST = BUGS bootstrap depcomp RELEASE
 
@@ -309,3 +239,33 @@ set(CPACK_GENERATOR "TGZ")
 set(CPACK_PACKAGE_VERSION_MAJOR 0)
 set(CPACK_PACKAGE_VERSION_MINOR 18)
 include(CPack)
+
+# everything related to install the qucs application
+# any dependencies are installed here
+if(UNIX AND NOT APPLE)
+	set(DESKTOP ${CMAKE_CURRENT_SOURCE_DIR}/contrib/qucsator.desktop)
+	install(FILES ${DESKTOP}
+		DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
+		
+    set(BITMAPS_HICOLOR_PATH ${CMAKE_CURRENT_SOURCE_DIR}/contrib/hicolor)
+    set(BITMAPS_HICOLOR_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor)
+
+	install(FILES ${BITMAPS_HICOLOR_PATH}/16x16/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/16x16/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/22x22/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/22x22/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/32x32/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/32x32/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/48x48/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/48x48/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/64x64/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/64x64/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/128x128/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/128x128/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/256x256/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/256x256/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/512x512/apps/qucsator.png
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/512x512/apps)
+	install(FILES ${BITMAPS_HICOLOR_PATH}/scalable/apps/qucsator.svg
+		DESTINATION ${BITMAPS_HICOLOR_DESTINATION}/scalable/apps)
+endif()

@@ -1,0 +1,23 @@
+SRCS = \
+    bjt.cpp \ 
+    device.cpp \ 
+    diac.cpp \ 
+    diode.cpp \ 
+    eqndefined.cpp \ 
+    jfet.cpp \ 
+    mosfet.cpp \ 
+    thyristor.cpp \ 
+    triac.cpp \ 
+    tunneldiode.cpp
+    
+HDRS = \
+    bjt.h \ 
+    device.h \ 
+    diac.h \ 
+    diode.h \ 
+    eqndefined.h \ 
+    jfet.h \ 
+    mosfet.h \ 
+    thyristor.h \ 
+    triac.h \ 
+    tunneldiode.h

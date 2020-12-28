@@ -29,6 +29,7 @@
 #include<algorithm>
 
 #include <stdio.h>
+#include <string.h>
 
 #include "object.h"
 #include "logging.h"
@@ -36,7 +37,7 @@
 #include "vector.h"
 #include "node.h"
 #include "circuit.h"
-#include "component_id.h"
+#include "components/component_id.h"
 #include "net.h"
 #include "netdefs.h"
 #include "strlist.h"
@@ -48,6 +49,8 @@
 #include "dataset.h"
 #include "fourier.h"
 #include "hbsolver.h"
+#include "exception.h"
+#include "exceptionstack.h"
 
 #define HB_DEBUG 0
 

@@ -1,0 +1,48 @@
+VERILOG_FILES = \
+	DLS_1ton.va \ 
+	DLS_nto1.va \ 
+	EKV26MOS.va \ 
+	MESFET.va \ 
+	andor4x2.va \ 
+	andor4x3.va \ 
+	andor4x4.va \ 
+	binarytogrey4bit.va \ 
+	comp_1bit.va \ 
+	comp_2bit.va \ 
+	comp_4bit.va \ 
+	dff_SR.va \ 
+	dmux2to4.va \ 
+	dmux3to8.va \ 
+	dmux4to16.va \ 
+	fa1b.va \ 
+	fa2b.va \ 
+	gatedDlatch.va \ 
+	greytobinary4bit.va \ 
+	ha1b.va \ 
+	hpribin4bit.va \ 
+	jkff_SR.va \ 
+	log_amp.va \ 
+	logic_0.va \ 
+	logic_1.va \ 
+	mod_amp.va \ 
+	mux2to1.va \ 
+	mux4to1.va \ 
+	mux8to1.va \ 
+	nigbt.va \ 
+	pad2bit.va \ 
+	pad3bit.va \ 
+	pad4bit.va \ 
+	photodiode.va \ 
+	phototransistor.va \ 
+	potentiometer.va \
+	tff_SR.va \ 
+	vcresistor.va 
+
+# order is important, because vtype needed by qucsMODULEcore.xml is defined in qucsVersion.xml
+VERILOG_XML = \
+	analogfunction.xml \
+	qucsVersion.xml \
+	qucsMODULEcore.xml \ 
+	qucsMODULEdefs.xml
+	#qucsMODULEgui.xml \ 
+	#qucsMODULEguiJSONsymbol.xml \ 

@@ -29,8 +29,9 @@
 #include <limits>
 
 #include "consts.h"
-#include "precision.h"
-#include "complex.h"
+#include "math/precision.h"
+#include "math/complex.h"
+#include "object.h"
 
 #ifdef log2
 #undef log2
@@ -46,7 +47,7 @@ qucs::vector logspace (nr_double_t, nr_double_t, int);
 qucs::vector runavg (qucs::vector, const int);
 qucs::vector runavg (const nr_complex_t, const int);
 
-class vector : public object
+class vector : public qucs::object
 {
  public:
   vector * getNext (void) const { return this->next; }

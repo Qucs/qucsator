@@ -1,16 +1,16 @@
-include_directories(
-  ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src/math
-  ${CMAKE_CURRENT_BINARY_DIR}) # qucdefs.h
+project(converter)
+cmake_minimum_required(VERSION 3.16)
 
-set(QUCSCONV_SRC
-    check_spice.cpp
-    check_vcd.cpp
-    matlab_producer.cpp
-    csv_producer.cpp
-    qucs_producer.cpp
-    qucsconv.cpp
-    touchstone_producer.cpp)
+include(${PROJECT_SOURCE_DIR}/../../../cmake/readMakeList.txt)
 
+find_package(BISON REQUIRED)
+find_package(FLEX REQUIRED)
+
+#include_directories(
+#  ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src/math
+#  ${CMAKE_CURRENT_BINARY_DIR}) # qucdefs.h
+
+readVariable(MakeList SRCS QUCSCONV_SRC)
 
 set(ParserTypes spice vcd)
 
@@ -47,15 +47,21 @@ add_custom_command(
   OUTPUT qucsdefs.h
   COMMAND ${CMAKE_CURRENT_BINARY_DIR}/../qucsator -l >
           ${CMAKE_CURRENT_BINARY_DIR}/qucsdefs.h
-  DEPENDS qucsator)
+  DEPENDS qucsator) # TODO: here is a build problem
 
-add_custom_target(defs DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/qucsdefs.h)
+add_custom_target(defs_converter DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/qucsdefs.h)
 
+# TODO: check that the number of files in conv_generated is same as for ParserTypes
 add_executable(qucsconv ${QUCSCONV_SRC} ${conv_generated})
 
-add_dependencies(qucsconv defs)
+add_dependencies(qucsconv defs_converter)
 
+# TODO: why CMAKE_DL_LIBS needed?
 target_link_libraries(qucsconv libqucsator ${CMAKE_DL_LIBS})
+target_include_directories(qucsconv
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_CURRENT_BINARY_DIR}
+	PRIVATE ${qucsator_BINARY_DIR})
 
 #
 # Handle installation

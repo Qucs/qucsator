@@ -33,8 +33,8 @@
 #include <assert.h>
 
 #include "logging.h"
-#include "component.h"
-#include "components.h"
+#include "components/component.h"
+#include "components/components.h"
 #include "net.h"
 #include "variable.h"
 #include "property.h"

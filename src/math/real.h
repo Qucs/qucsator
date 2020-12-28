@@ -28,7 +28,8 @@
 
 #include <cmath>
 
-#include <constants.h>
+#include "constants.h"
+#include "qucs_typedefs.h"
 
 /**It is prefered to add all used funcions into the qucs namespace.
  * Doing so one is forced do think about compatibility instead of using std directly.

@@ -26,6 +26,7 @@
 #define __ACSOLVER_H__
 
 #include "nasolver.h"
+#include "complex.h"
 
 namespace qucs {
 

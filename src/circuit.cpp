@@ -41,10 +41,10 @@
 #include "tvector.h"
 #include "history.h"
 #include "circuit.h"
-#include "microstrip/substrate.h"
+#include "components/microstrip/substrate.h"
 #include "operatingpoint.h"
 #include "characteristic.h"
-#include "component_id.h"
+#include "components/component_id.h"
 
 namespace qucs {
 

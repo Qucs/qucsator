@@ -40,16 +40,16 @@
 #include "vector.h"
 #include "dataset.h"
 #include "net.h"
-#include "tee.h"
-#include "open.h"
-#include "itrafo.h"
+#include "components/tee.h"
+#include "components/open.h"
+#include "components/itrafo.h"
 #include "ptrlist.h"
 #include "analysis.h"
 #include "nodelist.h"
 #include "nodeset.h"
 #include "equation.h"
 #include "environment.h"
-#include "component_id.h"
+#include "components/component_id.h"
 
 namespace qucs {
 

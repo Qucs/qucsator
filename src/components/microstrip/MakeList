@@ -1,0 +1,45 @@
+SRCS = \
+	bondwire.cpp \ 
+	circularloop.cpp \ 
+	cpwgap.cpp \ 
+	cpwline.cpp \ 
+	cpwopen.cpp \ 
+	cpwshort.cpp \ 
+	cpwstep.cpp \ 
+	mscorner.cpp \ 
+	mscoupled.cpp \ 
+	mscross.cpp \ 
+	msgap.cpp \ 
+	mslange.cpp \ 
+	msline.cpp \ 
+	msmbend.cpp \ 
+	msopen.cpp \ 
+	msrstub.cpp \ 
+	msstep.cpp \ 
+	mstee.cpp \ 
+	msvia.cpp \ 
+	spiralinductor.cpp \ 
+	substrate.cpp
+	
+HDRS = \
+	bondwire.h \ 
+	circularloop.h \ 
+	cpwgap.h \ 
+	cpwline.h \ 
+	cpwopen.h \ 
+	cpwshort.h \ 
+	cpwstep.h \ 
+	mscorner.h \ 
+	mscoupled.h \ 
+	mscross.h \ 
+	msgap.h \ 
+	mslange.h \ 
+	msline.h \ 
+	msmbend.h \ 
+	msopen.h \ 
+	msrstub.h \ 
+	msstep.h \ 
+	mstee.h \ 
+	msvia.h \ 
+	spiralinductor.h \ 
+	substrate.h

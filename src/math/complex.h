@@ -27,6 +27,7 @@
 
 #include <complex>
 #include "real.h"
+#include "qucs_typedefs.h"
 
 typedef std::complex<nr_double_t> nr_complex_t;
 

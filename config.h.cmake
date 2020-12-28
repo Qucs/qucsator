@@ -18,6 +18,9 @@
 #define _GNU_SOURCE 1
 #endif
 
+#ifndef CONFIG_H
+#define CONFIG_H
+
 
 /* Define if debug output should be supported. */
 #cmakedefine DEBUG
@@ -287,3 +290,7 @@
 /* Git last commit short hash */
 #cmakedefine GIT "@GIT@"
 
+/* If verilog models should be used or not */
+#cmakedefine USE_VERILOG
+
+#endif /* CONFIG_H */

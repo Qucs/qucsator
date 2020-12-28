@@ -34,7 +34,7 @@
 #define __CONSTANTS_H__
 
 #include "consts.h"
-#include "precision.h"
+#include "math/precision.h"
 
 namespace qucs {
 

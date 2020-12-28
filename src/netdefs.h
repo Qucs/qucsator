@@ -25,6 +25,8 @@
 #ifndef __NETDEFS_H__
 #define __NETDEFS_H__
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 class environment;
 }

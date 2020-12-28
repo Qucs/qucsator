@@ -33,6 +33,7 @@
 
 #include "object.h"
 #include "ptrlist.h"
+#include "complex.h"
 
 #define SAVE_OPS 1 // save operating points
 #define SAVE_ALL 2 // also save subcircuit nodes and operating points

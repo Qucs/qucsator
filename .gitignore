@@ -126,3 +126,5 @@ scan_vcd.cpp
 tokens_vcd.h
 
 *~
+*build*
+CMakeLists.txt.user

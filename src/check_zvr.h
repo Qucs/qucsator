@@ -25,6 +25,8 @@
 #ifndef __CHECK_ZVR_H__
 #define __CHECK_ZVR_H__
 
+#include "config.h"
+
 // forward declarations
 namespace qucs {
   class dataset;

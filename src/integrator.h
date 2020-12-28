@@ -26,6 +26,7 @@
 #define __INTEGRATOR_H__
 
 #include "states.h"
+#include "qucs_typedefs.h"
 
 #define MODE_NONE 0
 #define MODE_INIT 1

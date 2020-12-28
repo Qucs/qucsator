@@ -27,10 +27,11 @@
 #endif
 
 #include <stdio.h>
+#include <string.h>
 #include <cmath>
 
 #include "object.h"
-#include "complex.h"
+#include "math/complex.h"
 #include "circuit.h"
 #include "sweep.h"
 #include "net.h"
@@ -38,6 +39,10 @@
 #include "analysis.h"
 #include "nasolver.h"
 #include "acsolver.h"
+#include "dataset.h"
+#include "vector.h"
+#include "node.h"
+#include "logging.h"
 
 namespace qucs {
 

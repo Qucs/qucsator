@@ -36,6 +36,7 @@
 #include "compat.h"
 #include "complex.h"
 //#include "tvector.h"
+#include "tridiag.h"
 
 namespace qucs {
 

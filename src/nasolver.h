@@ -36,6 +36,7 @@
 #include "eqnsys.h"
 #include "nasolution.h"
 #include "analysis.h"
+#include "complex.h"
 
 // Convergence helper definitions.
 #define CONV_None            0

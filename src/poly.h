@@ -25,6 +25,8 @@
 #ifndef __POLY_H__
 #define __POLY_H__
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 class poly

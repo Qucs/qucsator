@@ -1,7 +1,6 @@
 message(STATUS "Checking whether system has ANSI C header files")
 include(CheckPrototypeExists)
 
-include(CheckPrototypeExists)
 check_include_files("dlfcn.h;stdint.h;stddef.h;inttypes.h;stdlib.h;strings.h;string.h;float.h" StandardHeadersExist)
 if(StandardHeadersExist)
 	check_prototype_exists(memchr string.h memchrExists)
@@ -30,7 +29,6 @@ endif(NOT STDC_HEADERS)
 
 
 check_include_files(unistd.h HAVE_UNISTD_H)
-
 include(CheckDIRSymbolExists)
 check_dirsymbol_exists("sys/stat.h;sys/types.h;dirent.h" HAVE_DIRENT_H)
 if (HAVE_DIRENT_H)

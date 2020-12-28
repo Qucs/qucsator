@@ -4871,5 +4871,5 @@ constant * evaluate::receiver_v_v (constant * args) {
 }
 
 // Include the application array.
-#include "applications.h"
+//#include "applications.h"
 

@@ -26,6 +26,7 @@
 #define __CHECK_NETLIST_H__
 
 #include "netdefs.h"
+#include "config.h"
 
 /* Forward declarations. */
 namespace qucs {

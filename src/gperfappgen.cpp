@@ -34,14 +34,12 @@
 #include "evaluate.h"
 #include "equation.h"
 
-using namespace qucs::eqn;
-
 #include "gperfappgen.h"
 
 /* The program is used to generate the input file for a gperf run. */
 int main (void) {
 
-  struct application_t * app;
+  struct qucs::eqn::application_t * app;
   char * key;
   int len, n = 0;
 
@@ -57,12 +55,12 @@ int main (void) {
 	   "%%%%\n");
 
   // Print hash key list.
-  for (app = applications; app->application != NULL; app++, n++) {
+  for (app = qucs::eqn::applications; app->application != NULL; app++, n++) {
     key = (char *) calloc (1, strlen (app->application) + app->nargs * 3 + 5);
     strcat (key, app->application);
     for (int i = 0; i < app->nargs; i++) {
       strcat (key, "_");
-      strcat (key, checker::tag2key (app->args[i]));
+      strcat (key, qucs::eqn::checker::tag2key (app->args[i]));
     }
     len = strlen (key);
     fprintf (stdout, "\"%s\", %s%s%s%d\n", key,

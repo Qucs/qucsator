@@ -1,0 +1,23 @@
+SRCS = \
+    and.cpp \ 
+    buffer.cpp \ 
+    digisource.cpp \ 
+    digital.cpp \ 
+    inverter.cpp \ 
+    nand.cpp \ 
+    nor.cpp \ 
+    or.cpp \ 
+    xnor.cpp \ 
+    xor.cpp
+
+HDRS = \
+    and.h \ 
+    buffer.h \ 
+    digisource.h \ 
+    digital.h \ 
+    inverter.h \ 
+    nand.h \ 
+    nor.h \ 
+    or.h \ 
+    xnor.h \ 
+    xor.h

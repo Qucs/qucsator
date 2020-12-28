@@ -29,6 +29,8 @@
 #include <unordered_map>
 #include <utility>
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 class variable;

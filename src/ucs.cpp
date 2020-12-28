@@ -35,18 +35,18 @@
 #include <iostream>
 #include <fstream>
 
-#include "logging.h"
-#include "precision.h"
+#include "check_netlist.h"
 #include "component.h"
 #include "components.h"
-#include "net.h"
-#include "input.h"
 #include "dataset.h"
-#include "equation.h"
 #include "environment.h"
+#include "equation.h"
 #include "exceptionstack.h"
-#include "check_netlist.h"
+#include "input.h"
+#include "logging.h"
+#include "math/precision.h"
 #include "module.h"
+#include "net.h"
 
 #if HAVE_UNISTD_H
 #include <unistd.h>

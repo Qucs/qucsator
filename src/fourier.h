@@ -25,6 +25,8 @@
 #ifndef __FOURIER_H__
 #define __FOURIER_H__
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 class vector;

@@ -29,6 +29,7 @@
 
 #include "ptrlist.h"
 #include "tvector.h"
+#include "analysis.h"
 
 namespace qucs {
 

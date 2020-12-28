@@ -26,6 +26,7 @@
 #define __PRECISION_H__
 
 #include <limits>
+#include "qucs_typedefs.h"
 
 
 #if NR_DOUBLE_SIZE == 4  /* S 23bit MAN | S 7bit EXP */

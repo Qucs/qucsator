@@ -38,7 +38,7 @@ class exceptionstack
   void push (exception *);
   exception * pop (void);
   exception * top (void);
-  void print (const char * prefix = NULL);
+  void print (const char * prefix = nullptr);
 
  private:
   exception * root;

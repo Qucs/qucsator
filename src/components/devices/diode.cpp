@@ -30,6 +30,7 @@
 #include "device.h"
 #include "devstates.h"
 #include "diode.h"
+#include "logging.h"
 
 #define NODE_C 0 /* cathode node */
 #define NODE_A 1 /* anode node   */

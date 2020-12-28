@@ -40,6 +40,8 @@
 #include "acsolver.h"
 #include "trsolver.h"
 #include "hbsolver.h"
-#include "e_trsolver.h"
+#ifdef USE_VERILOG
+#include "interface/e_trsolver.h"
+#endif
 
 #endif /* __ANALYSES_H__ */

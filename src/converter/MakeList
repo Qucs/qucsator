@@ -1,0 +1,20 @@
+SRCS = \
+	check_spice.cpp \
+	check_vcd.cpp \
+	csv_producer.cpp \
+	matlab_producer.cpp \
+	qucsconv.cpp \
+	qucs_producer.cpp \
+	touchstone_producer.cpp
+
+SRCS_YPP = \
+	parse_spice.ypp \
+	parse_vcd.ypp
+ 	
+HDRS = \
+	check_spice.h \
+	check_vcd.h \
+	csv_producer.h \
+	matlab_producer.h \
+	qucs_producer.h \
+	touchstone_producer.h

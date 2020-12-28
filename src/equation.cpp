@@ -48,6 +48,7 @@
 #include "range.h"
 #include "exception.h"
 #include "exceptionstack.h"
+#include "gperfappgen.h"
 
 namespace qucs
 {

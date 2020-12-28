@@ -26,7 +26,7 @@
 #define __MODULE_H__
 
 #include <list>
-
+#include <string>
 #include "hash.h"
 
 namespace qucs {

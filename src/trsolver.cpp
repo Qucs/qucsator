@@ -46,6 +46,8 @@
 #include "transient.h"
 #include "exception.h"
 #include "exceptionstack.h"
+#include "dataset.h"
+#include "vector.h"
 
 #define STEPDEBUG   0 // set to zero for release
 #define BREAKPOINTS 0 // exact breakpoint calculation
@@ -55,6 +57,10 @@
 
 // Macro for the n-th state of the solution vector history.
 #define SOL(state) (solution[(int) getState (sState, (state))])
+
+#ifndef MAX
+# define MAX(x,y) (((x) > (y)) ? (x) : (y))
+#endif
 
 namespace qucs {
 

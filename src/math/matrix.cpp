@@ -1933,7 +1933,7 @@ matrix twoport (matrix m, char in, char out) {
       res.set (0, 0, m (0, 1) - m (0, 0) * m (1, 1) / d);
       res.set (0, 1, m (0, 0) / d);
       res.set (1, 0, -m (1, 1) / d);
-      res.set (0, 1, 1.0 / d);
+      res.set (1, 1, 1.0 / d);
       break;
     case 'A': // S to A
       res = stoa (m);
@@ -1959,7 +1959,7 @@ matrix twoport (matrix m, char in, char out) {
       res.set (0, 0, m (0, 1) / d);
       res.set (0, 1, m (0, 0) - m (0, 1) * m (1, 0) / d);
       res.set (1, 0, 1.0 / d);
-      res.set (0, 1, -m (1, 0) / d);
+      res.set (1, 1, -m (1, 0) / d);
       break;
     case 'T': // T to T
       res = m;

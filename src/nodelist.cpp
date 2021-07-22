@@ -153,6 +153,7 @@ void nodelist::assignNodes (void) {
   // create fast array access possibility
   narray.clear();
   narray.reserve(this->length());
+  narray.resize(1);
 
   for (auto n: root) {
     // ground node gets a zero counter
@@ -162,6 +163,7 @@ void nodelist::assignNodes (void) {
     }
     // others get a unique number greater than zero
     else {
+      narray.resize(i+1);
       narray[i] = n;
       n->n = i++;
     }

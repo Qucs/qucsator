@@ -27,6 +27,8 @@
 
 #define LOG_ERROR  0
 #define LOG_STATUS 1
+#include "qucs_typedefs.h"
+#include "config.h"
 #include <stdio.h>
 __BEGIN_DECLS
 

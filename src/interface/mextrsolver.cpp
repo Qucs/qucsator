@@ -1,5 +1,5 @@
 #include <string>
-#include <qucs-core/qucs_interface.h>
+#include "qucs_interface.h"
 #include "mextrsolver.h"
 
 using namespace qucs;

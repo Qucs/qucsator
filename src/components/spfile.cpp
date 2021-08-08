@@ -36,6 +36,7 @@
 #include "spline.h"
 #include "interpolator.h"
 #include "spfile.h"
+#include <string.h>
 
 using namespace qucs;
 

@@ -1,0 +1,13 @@
+SRCS = \
+#    cbesselj.cpp \
+    complex.cpp \
+    fspecial.cpp \
+    matrix.cpp \
+    real.cpp
+    
+HDRS = \
+    complex.h \
+    fspecial.h \
+    matrix.h \
+    precision.h \
+    real.h

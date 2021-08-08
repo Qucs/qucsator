@@ -25,6 +25,8 @@
 #ifndef __DEVSTATES_H__
 #define __DEVSTATES_H__
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 class devstates

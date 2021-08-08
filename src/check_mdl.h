@@ -25,6 +25,8 @@
 #ifndef __CHECK_MDL_H__
 #define __CHECK_MDL_H__
 
+#include "config.h"
+
 namespace qucs {
   class dataset;
 }

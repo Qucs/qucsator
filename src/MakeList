@@ -1,0 +1,124 @@
+SRCS = \
+	acsolver.cpp \ 
+	analysis.cpp \ 
+	check_citi.cpp \ 
+	check_csv.cpp \ 
+	check_dataset.cpp \ 
+	check_mdl.cpp \ 
+	check_netlist.cpp \ 
+	check_touchstone.cpp \ 
+	check_zvr.cpp \ 
+	circuit.cpp \ 
+	dataset.cpp \ 
+	dcsolver.cpp \ 
+	devstates.cpp \ 
+	differentiate.cpp \ 
+	environment.cpp \ 
+	# eqnsys.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	equation.cpp \ 
+	evaluate.cpp \ 
+	exception.cpp \ 
+	exceptionstack.cpp \ 
+	fourier.cpp \ 
+	# gperfappgen.cpp \ # not intended to be compiled for libqucsator, but it is its own application
+	# hash.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	hbsolver.cpp \ 
+	history.cpp \ 
+	input.cpp \ 
+	integrator.cpp \ 
+	interpolator.cpp \ 
+	logging.c \
+	matvec.cpp \ 
+	module.cpp \ 
+	# nasolver.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	net.cpp \ 
+	nodelist.cpp \ 
+	nodeset.cpp \ 
+	object.cpp \ 
+	parasweep.cpp \ 
+	property.cpp \ 
+	range.cpp \ 
+	receiver.cpp \ 
+	spline.cpp \ 
+	spsolver.cpp \ 
+	# states.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	strlist.cpp \ 
+	sweep.cpp \ 
+	# tmatrix.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	transient.cpp \ 
+	# tridiag.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	trsolver.cpp \
+	# tvector.cpp \ # do not include, because it is included in nasolver.h (Template implementation)
+	# ucs.cpp \ Not used in the lib, only in the application it self
+	variable.cpp \ 
+	vector.cpp
+	
+HDRS = \
+	acsolver.h \ 
+	analyses.h \ 
+	analysis.h \ 
+	applications.h \ 
+	characteristic.h \ 
+	check_citi.h \ 
+	check_csv.h \ 
+	check_dataset.h \ 
+	check_mdl.h \ 
+	check_netlist.h \ 
+	check_touchstone.h \ 
+	check_zvr.h \ 
+	circuit.h \ 
+	compat.h \ 
+	constants.h \ 
+	consts.h \ 
+	dataset.h \ 
+	dcsolver.h \ 
+	devstates.h \ 
+	differentiate.h \ 
+	environment.h \ 
+	equation.h \ 
+	evaluate.h \ 
+	exception.h \ 
+	exceptionstack.h \ 
+	fourier.h \ 
+	hbsolver.h \ 
+	history.h \ 
+	input.h \ 
+	integrator.h \ 
+	interpolator.h \ 
+	libqucsator.h \ 
+	logging.h \ 
+	matvec.h \ 
+	module.h \ 
+	net.h \ 
+	netdefs.h \ 
+	node.h \ 
+	nodelist.h \ 
+	nodeset.h \ 
+	object.h \ 
+	operatingpoint.h \ 
+	pair.h \ 
+	parasweep.h \ 
+	poly.h \ 
+	property.h \  
+	range.h \ 
+	receiver.h \ 
+	spline.h \ 
+	spsolver.h \ 
+	strlist.h \ 
+	sweep.h \ 
+	transient.h \ 
+	trsolver.h \ 
+	variable.h \ 
+	vector.h
+
+TEMPLATE_HDRS = \
+	eqnsys.h \ 
+	hash.h \
+	nasolution.h \  
+	nasolver.h \ 
+	ptrlist.h \
+	states.h \ 
+	tmatrix.h \ 
+	tridiag.h \ 
+	tvector.h
+	valuelist.h \ 

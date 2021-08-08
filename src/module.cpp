@@ -34,10 +34,12 @@
 #include <list>
 
 #include "netdefs.h"
-#include "components.h"
+#include "components/components.h"
 #include "analyses.h"
 #include "netdefs.h"
 #include "module.h"
+#include "nodeset.h"
+#include "logging.h"
 
 #ifdef __MINGW32__
  #include <windows.h>
@@ -48,7 +50,7 @@
 #include <cstdlib> //for exit
 
 // Global module hash.
-qucs::hash<module> module::modules;
+qucs::hash<qucs::module> qucs::module::modules;
 
 // Our global factories for making loaded circuit objects
 // The factories are populated as dynamic modules are loaded
@@ -66,14 +68,14 @@ std::map< std::string, defs_t *, std::less<std::string> > factorydef;
 #endif
 
 // Constructor creates an instance of the module class.
-module::module () {
+qucs::module::module () {
   definition = NULL;
   circreate = NULL;
   anacreate = NULL;
 }
 
 // Destructor deletes an instance of the module class.
-module::~module () {
+qucs::module::~module () {
 }
 
 // Definitions which do not fit elsewhere.
@@ -92,7 +94,7 @@ struct define_t miscdef2 =
     props1, props2 };
 
 // Registers an analysis object to the list of available modules.
-void module::registerModule (analysis_definer_t define,
+void qucs::module::registerModule (analysis_definer_t define,
 			     analysis_creator_t create) {
   module * m = new module ();
   m->definition = define ();
@@ -101,7 +103,7 @@ void module::registerModule (analysis_definer_t define,
 }
 
 // Registers a circuit object to the list of available modules.
-void module::registerModule (circuit_definer_t define,
+void qucs::module::registerModule (circuit_definer_t define,
 			     circuit_creator_t create) {
   module * m = new module ();
   m->definition = define ();
@@ -110,7 +112,7 @@ void module::registerModule (circuit_definer_t define,
 }
 
 // Registers a miscellaneous object to the list of available modules.
-void module::registerModule (misc_definer_t define) {
+void qucs::module::registerModule (misc_definer_t define) {
   module * m = new module ();
   m->definition = define ();
   registerModule (define()->type, m);
@@ -118,14 +120,14 @@ void module::registerModule (misc_definer_t define) {
 
 /* Registers a miscellaneous structure just defined by a somple
    define_t structure to the list of available modules. */
-void module::registerModule (struct define_t * define) {
+void qucs::module::registerModule (struct define_t * define) {
   module * m = new module ();
   m->definition = define;
   registerModule (define->type, m);
 }
 
 // Puts a module into the available module hash.
-void module::registerModule (const char * type, module * m) {
+void qucs::module::registerModule (const char * type, module * m) {
   if (modules.get ((char *) type) != NULL) {
     logprint (LOG_ERROR, "module already registered: %s\n", type);
   }
@@ -136,7 +138,7 @@ void module::registerModule (const char * type, module * m) {
 
 /* Returns the definition of a module specified by its type name if
    such is existing and otherwise NULL. */
-struct define_t * module::getModule (char * type) {
+struct define_t * qucs::module::getModule (char * type) {
   module * m = modules.get (type);
   if (m != NULL) {
     return m->definition;
@@ -153,7 +155,7 @@ struct define_t * module::getModule (char * type) {
   registerModule (&val::definition)
 
 // Global static module registration.
-void module::registerModules (void) {
+void qucs::module::registerModules (void) {
 
   // miscellaneous
   registerModule (&miscdef1);
@@ -264,6 +266,7 @@ void module::registerModules (void) {
   REGISTER_CIRCUIT (digisource);
   REGISTER_CIRCUIT (buffer);
 
+#ifdef USE_VERILOG
   REGISTER_CIRCUIT (EKV26MOS);
   REGISTER_CIRCUIT (log_amp);
   REGISTER_CIRCUIT (mod_amp);
@@ -304,6 +307,7 @@ void module::registerModules (void) {
   REGISTER_CIRCUIT (hpribin4bit);
   REGISTER_CIRCUIT (vcresistor);
   REGISTER_CIRCUIT (ecvs);
+#endif
 
   // analyses
   REGISTER_ANALYSIS (dcsolver);
@@ -312,11 +316,13 @@ void module::registerModules (void) {
   REGISTER_ANALYSIS (trsolver);
   REGISTER_ANALYSIS (hbsolver);
   REGISTER_ANALYSIS (parasweep);
-  REGISTER_ANALYSIS (e_trsolver);
+  #ifdef USE_VERILOG
+    REGISTER_ANALYSIS (e_trsolver);
+  #endif
 }
 
 // Global module unregistration.
-void module::unregisterModules (void) {
+void qucs::module::unregisterModules (void) {
   qucs::hashiterator<module> it;
   for (it = qucs::hashiterator<module> (modules); *it; ++it) {
     delete it.currentVal ();
@@ -402,7 +408,7 @@ static void printprop (const char * type, const char * prefix,
 
 /* The function emits a complete list of the registered component
    definitions as compilable C-code. */
-void module::print (void) {
+void qucs::module::print (void) {
   fprintf (stdout, "%s", def_prefix);
   qucs::hashiterator<module> it;
   for (it = qucs::hashiterator<module> (modules); *it; ++it) {
@@ -434,7 +440,7 @@ void module::print (void) {
 
 
 // look for dynamic libs, load and register them
-void module::registerDynamicModules (char *proj, std::list<std::string> modlist)
+void qucs::module::registerDynamicModules (char *proj, std::list<std::string> modlist)
 {
 /* How it is (WAS) supposed to work:
  * 1) It will list the working directory contents looking for libraries
@@ -534,7 +540,7 @@ void module::registerDynamicModules (char *proj, std::list<std::string> modlist)
   // print registered components
   /*
   qucs::hashiterator<module> it;
-  for (it = qucs::hashiterator<module> (module::modules); *it; ++it) {
+  for (it = qucs::hashiterator<module> (qucs::module::modules); *it; ++it) {
     module * m = it.currentVal ();
     struct define_t * def = m->definition;
     printf("\n" );
@@ -546,7 +552,7 @@ void module::registerDynamicModules (char *proj, std::list<std::string> modlist)
 }
 
 // Close all the dynamic libs if any opened
-void module::closeDynamicLibs()
+void qucs::module::closeDynamicLibs()
 {
   for(itr=dl_list.begin(); itr!=dl_list.end(); itr++){
 #if __MINGW32__

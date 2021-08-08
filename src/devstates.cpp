@@ -31,6 +31,7 @@
 #include <string.h>
 
 #include "devstates.h"
+#include "qucs_typedefs.h"
 
 namespace qucs {
 

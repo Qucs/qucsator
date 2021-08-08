@@ -26,8 +26,13 @@
 #ifndef __APPLICATIONS_H__
 #define __APPLICATIONS_H__
 
+#include "equation.h"
+#include "evaluate.h"
+
 // Array containing all kinds of applications.
-struct application_t qucs::eqn::applications[] = {
+namespace qucs {
+namespace eqn {
+struct application_t applications[] = {
   { "+", TAG_DOUBLE,  evaluate::plus_d, 1, { TAG_DOUBLE  } },
   { "+", TAG_COMPLEX, evaluate::plus_c, 1, { TAG_COMPLEX } },
   { "+", TAG_VECTOR,  evaluate::plus_v, 1, { TAG_VECTOR  } },
@@ -412,7 +417,7 @@ struct application_t qucs::eqn::applications[] = {
 
   { "diff", TAG_VECTOR, evaluate::diff_v_2, 2, { TAG_VECTOR, TAG_VECTOR } },
   { "diff", TAG_VECTOR, evaluate::diff_v_3, 3, { TAG_VECTOR, TAG_VECTOR,
-						 TAG_DOUBLE } },
+                         TAG_DOUBLE } },
 
   { "max", TAG_DOUBLE,  evaluate::max_d, 1, { TAG_DOUBLE  } },
   { "max", TAG_DOUBLE,  evaluate::max_c, 1, { TAG_COMPLEX } },
@@ -467,48 +472,48 @@ struct application_t qucs::eqn::applications[] = {
 
   { "stos", TAG_MATRIX, evaluate::stos_m_d,   2, { TAG_MATRIX, TAG_DOUBLE } },
   { "stos", TAG_MATRIX, evaluate::stos_m_d_d, 3, { TAG_MATRIX, TAG_DOUBLE,
-						   TAG_DOUBLE } },
+                           TAG_DOUBLE } },
   { "stos", TAG_MATRIX, evaluate::stos_m_d_c, 3, { TAG_MATRIX, TAG_DOUBLE,
-						   TAG_COMPLEX } },
+                           TAG_COMPLEX } },
   { "stos", TAG_MATRIX, evaluate::stos_m_d_v, 3, { TAG_MATRIX, TAG_DOUBLE,
-						   TAG_VECTOR } },
+                           TAG_VECTOR } },
   { "stos", TAG_MATRIX, evaluate::stos_m_c,   2, { TAG_MATRIX, TAG_COMPLEX } },
   { "stos", TAG_MATRIX, evaluate::stos_m_c_d, 3, { TAG_MATRIX, TAG_COMPLEX,
-						   TAG_DOUBLE } },
+                           TAG_DOUBLE } },
   { "stos", TAG_MATRIX, evaluate::stos_m_c_c, 3, { TAG_MATRIX, TAG_COMPLEX,
-						   TAG_COMPLEX } },
+                           TAG_COMPLEX } },
   { "stos", TAG_MATRIX, evaluate::stos_m_c_v, 3, { TAG_MATRIX, TAG_COMPLEX,
-						   TAG_VECTOR } },
+                           TAG_VECTOR } },
   { "stos", TAG_MATRIX, evaluate::stos_m_v,   2, { TAG_MATRIX, TAG_VECTOR } },
   { "stos", TAG_MATRIX, evaluate::stos_m_v_d, 3, { TAG_MATRIX, TAG_VECTOR,
-						   TAG_DOUBLE } },
+                           TAG_DOUBLE } },
   { "stos", TAG_MATRIX, evaluate::stos_m_v_c, 3, { TAG_MATRIX, TAG_VECTOR,
-						   TAG_COMPLEX } },
+                           TAG_COMPLEX } },
   { "stos", TAG_MATRIX, evaluate::stos_m_v_v, 3, { TAG_MATRIX, TAG_VECTOR,
-						   TAG_VECTOR } },
+                           TAG_VECTOR } },
 
   { "stos", TAG_MATVEC, evaluate::stos_mv_d,   2, { TAG_MATVEC, TAG_DOUBLE } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_d_d, 3, { TAG_MATVEC, TAG_DOUBLE,
-						    TAG_DOUBLE } },
+                            TAG_DOUBLE } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_d_c, 3, { TAG_MATVEC, TAG_DOUBLE,
-						    TAG_COMPLEX } },
+                            TAG_COMPLEX } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_d_v, 3, { TAG_MATVEC, TAG_DOUBLE,
-						    TAG_VECTOR } },
+                            TAG_VECTOR } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_c,   2, { TAG_MATVEC,
-						    TAG_COMPLEX } },
+                            TAG_COMPLEX } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_c_d, 3, { TAG_MATVEC, TAG_COMPLEX,
-						    TAG_DOUBLE } },
+                            TAG_DOUBLE } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_c_c, 3, { TAG_MATVEC, TAG_COMPLEX,
-						    TAG_COMPLEX } },
+                            TAG_COMPLEX } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_c_v, 3, { TAG_MATVEC, TAG_COMPLEX,
-						    TAG_VECTOR } },
+                            TAG_VECTOR } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_v,   2, { TAG_MATVEC, TAG_VECTOR } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_v_d, 3, { TAG_MATVEC, TAG_VECTOR,
-						    TAG_DOUBLE } },
+                            TAG_DOUBLE } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_v_c, 3, { TAG_MATVEC, TAG_VECTOR,
-						    TAG_COMPLEX } },
+                            TAG_COMPLEX } },
   { "stos", TAG_MATVEC, evaluate::stos_mv_v_v, 3, { TAG_MATVEC, TAG_VECTOR,
-						    TAG_VECTOR } },
+                            TAG_VECTOR } },
 
   { "stoy", TAG_MATRIX, evaluate::stoy_m, 1, { TAG_MATRIX } },
   { "stoy", TAG_MATRIX, evaluate::stoy_m_d, 2, { TAG_MATRIX, TAG_DOUBLE } },
@@ -1089,5 +1094,8 @@ const char * checker::tag2key (int tag) {
   }
   return key;
 }
+} /* namespace eqn */
+} /* namespace qucs */
+
 
 #endif /* __APPLICATIONS_H__ */

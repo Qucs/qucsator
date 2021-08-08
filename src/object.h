@@ -33,6 +33,7 @@
 
 #include <string>
 #include "property.h"
+#include "qucs_typedefs.h"
 
 #define MCREATOR(val) \
   val (); \

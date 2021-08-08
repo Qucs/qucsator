@@ -25,6 +25,8 @@
 #ifndef __RANGE_H__
 #define __RANGE_H__
 
+#include "qucs_typedefs.h"
+
 namespace qucs {
 
 class range

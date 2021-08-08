@@ -180,7 +180,7 @@ vector * emi::receiver (nr_double_t * ida, nr_double_t duration, int ilength) {
 }
 
 /* This is a wrapper for the basic EMI rceiver functionality.  It
-   takes an arbitraty waveform in the time domain and interpolates it
+   takes an arbitrary waveform in the time domain and interpolates it
    such, that its length results in a power of two elements. */
 vector * emi::receiver (vector * da, vector * dt, int len) {
 

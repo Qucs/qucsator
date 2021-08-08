@@ -1458,7 +1458,7 @@ std::string nasolver<nr_type_t>::createI (int n, const std::string &amps, int sa
 }
 
 
-/* Alternaive to countNodes () */
+/* Alternative to countNodes () */
 template <class nr_type_t>
 int nasolver<nr_type_t>::getN()
 {

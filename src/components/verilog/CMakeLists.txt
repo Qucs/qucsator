@@ -45,7 +45,7 @@ set(VA_FILES
     tff_SR.va
     vcresistor.va)
 
-# XML sripts need to build, the order matters
+# XML scripts need to build, the order matters
 set(XML_BUILD
    analogfunction.xml
    qucsVersion.xml

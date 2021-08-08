@@ -41,7 +41,7 @@
        1998
        isbn 0-471-17096-8
 
-   [2] Fundation for Microwave Engineering
+   [2] Foundation for Microwave Engineering
        The {IEEE} press serie on Electromagnetics Wave Theory
        Robert E. Collin
        IEEE Press,

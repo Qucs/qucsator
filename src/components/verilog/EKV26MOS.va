@@ -86,7 +86,7 @@ electrical Drain_int, Source_int;
  parameter real Kf = 1.0e-27 from [0.0 :inf]   `attr(info="flicker noise coefficient");
  parameter real Af = 1.0 from [0.0 : inf]      `attr(info="flicker noise exponent" );
 // Matching parameters
- parameter real Avto = 0.0 from [0.0 :inf]     `attr(info="area related theshold voltage mismatch parameter" unit = "V*m");
+ parameter real Avto = 0.0 from [0.0 :inf]     `attr(info="area related threshold voltage mismatch parameter" unit = "V*m");
  parameter real Akp = 0.0 from [0.0 : inf]     `attr(info="area related gain mismatch parameter" unit="m");
  parameter real Agamma = 0.0 from [0.0 : inf]  `attr(info="area related body effect mismatch parameter" unit="sqrt(V)*m");
 // Diode parameters

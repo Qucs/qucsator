@@ -1,5 +1,5 @@
 classdef asynctrcircuit < qucstrans
-    % asynchonous circuit solver for use with the ode integrator routines
+    % asynchronous circuit solver for use with the ode integrator routines
     % based on an interface to the qucs transient circuit solvers
     %
     %

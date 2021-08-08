@@ -236,7 +236,7 @@
 
 2007-05-01  Stefan Jahn  <stefan@lkcc.org>
 
-	* devices/eqndefined.cpp: Fixed bug occuring when there are
+	* devices/eqndefined.cpp: Fixed bug occurring when there are
 	multiple instances of an EDD enclosed in a sub-circuit.  These
 	reuse the equations in the environment.
 

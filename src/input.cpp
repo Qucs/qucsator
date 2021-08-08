@@ -155,7 +155,7 @@ void input::factory (void) {
 	      }
 	    }
 	    else {
-	      // ususal string property
+	      // usual string property
 	      a->addProperty (pairs->key, pairs->value->ident);
 	    }
 	  } else {

@@ -755,7 +755,7 @@ void circuit::voltageSource (int n, int pos, int neg, nr_double_t value) {
 
 /* The function runs the necessary calculation in order to perform a
    single integration step of a voltage controlled capacitance placed
-   in between the given nodes.  It is assumed that the appropiate
+   in between the given nodes.  It is assumed that the appropriate
    charge only depends on the voltage between these nodes. */
 void circuit::transientCapacitance (int qstate, int pos, int neg,
 				    nr_double_t cap, nr_double_t voltage,
@@ -813,7 +813,7 @@ void circuit::transientCapacitanceQ (int qstate, int qpos,
 
 /* This function stores the Jacobian entries due to the C = dQ/dV
    value.  The nodes where the charge is located as well as those of
-   the voltage dependency, the appropiate capacitance value and the
+   the voltage dependency, the appropriate capacitance value and the
    voltage across the the controlling branch must be given.  It also
    saves the current contributions which are necessary for the NR
    iteration and considers the polarity of the circuit. */

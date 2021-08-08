@@ -300,7 +300,7 @@ void environment::setValue (char * n, constant * value) {
 // Short helper macro.
 #define A(a) ((assignment *) (a))
 
-/* The function puts local variables (prameters and equation results)
+/* The function puts local variables (parameters and equation results)
    into the set of environment variables. */
 void environment::saveResults (void) {
   node * equations = checkee->getEquations ();

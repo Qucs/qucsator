@@ -45,7 +45,7 @@
  parameter real NSRT = 5e5 from [1 : inf]
   `attr(info="Negative slew rate (V/s)");
  parameter real VLIMP = 14 from [0.01 : inf]
-  `attr(info="Positve output voltage limit (V)");
+  `attr(info="Positive output voltage limit (V)");
  parameter real VLIMN = -14 from [-inf : 0]
   `attr(info="Negative output voltage limit (V)");
  parameter real ILMAX = 35e-3 from [1e-9 : inf]

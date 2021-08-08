@@ -54,7 +54,7 @@
 
 using namespace qucs;
 
-/*! \todo replace environement name root by "/" in order to be filesystem compatible */
+/*! \todo replace environment name root by "/" in order to be filesystem compatible */
 int main (int argc, char ** argv) {
 
   char * infile = NULL;

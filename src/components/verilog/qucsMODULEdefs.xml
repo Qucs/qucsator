@@ -128,7 +128,7 @@
   <admst:text format="&quot;%(value)&quot;"/>
 </admst:template>
 
-<!-- recurse, till it retuns the value of the independent variable -->
+<!-- recurse, till it returns the value of the independent variable -->
 <admst:template match=":variable">
   <!-- admst:text format="&quot;%(name)&quot;"/ -->
   <admst:apply-templates select="default" match=":expression"/>

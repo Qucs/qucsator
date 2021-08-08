@@ -517,7 +517,7 @@ int net::checkCircuitChain (void) {
 }
 
 /* This function counts the number of signals (ports) within the list
-   of registerd circuits. */
+   of registered circuits. */
 int net::countPorts (void) {
   int count = 0;
   for (circuit * c = root; c != NULL; c = (circuit *) c->getNext ()) {

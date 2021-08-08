@@ -38,7 +38,7 @@ Date:	     2005-03-01
 Description: Depending on the netlist input order it may occur that a DC
 	     analysis converges or does not converge (under-determined
 	     equation system?).
-Fix:	     The example netlists I had for this case are almostly
+Fix:	     The example netlists I had for this case are almost
 	     rank-deficient MNA matrices.  Thus another, numerically more
 	     stable, matrix decomposition algorithm has been implemented:
 	     the QR decomposition using Householder transformations.  The

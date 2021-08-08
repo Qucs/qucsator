@@ -200,7 +200,7 @@
 
 2007-12-11  Stefan Jahn  <stefan@lkcc.org>
 
-	* qucsVersion.xml: Implemented $strobe() and $finish() corretly
+	* qucsVersion.xml: Implemented $strobe() and $finish() correctly
 	now.  Simple (only for numeric case items) but working 'case'
 	implementation added.
 

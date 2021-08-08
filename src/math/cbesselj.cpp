@@ -209,7 +209,7 @@ cbesselj_mediumarg (unsigned int n, nr_complex_t z)
 
 
 
-/*! \brief num of P(k) (n = 8) will overlow above this value */
+/*! \brief num of P(k) (n = 8) will overflow above this value */
 #define MAX_LARGE_ITERATION 430
 
 /*!\brief besselj for large argument

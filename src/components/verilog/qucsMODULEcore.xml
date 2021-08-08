@@ -30,7 +30,7 @@
 <admst:variable name="nbr_sources_flickernoise" select="%s"/>
 </admst:for-each>
 
-<!-- parse ADMS command line arguments, needs to be outside admst:open, keep last comand -->
+<!-- parse ADMS command line arguments, needs to be outside admst:open, keep last command -->
 <!-- output filename is 1st argument in -o flag in command line-->
 <admst:variable name="filename" select="%(/module/name)_common"/>
 <admst:variable name="filename_state" select="0"/>
@@ -736,7 +736,7 @@ using qucs::matrix;
 #include &quot;$(filename).defs.h&quot;
 
 
-<!-- emmit code for the dynamic loader -->
+<!-- emit code for the dynamic loader -->
 <admst:text format="\n// loader constructor interface\n"/>
 <admst:text format="#ifdef QUCSADMS_DYLOAD\n"/>
 <admst:text format="extern &quot;C&quot; {\n"/>

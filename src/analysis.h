@@ -113,7 +113,7 @@ public:
     virtual ~analysis ();
 
     /*! \fn solve
-    * \brief placehoder for solution function
+    * \brief placeholder for solution function
     *
     * Virtual solution function intended to be overridden by the
     * inheiriting class's solution function.
@@ -124,7 +124,7 @@ public:
     }
 
     /*! \fn initialize
-    * \brief placehoder for initialization function
+    * \brief placeholder for initialization function
     *
     * Virtual initialize function intended to be overridden by the
     * inheiriting class's initialization function.
@@ -135,7 +135,7 @@ public:
     }
 
     /*! \fn cleanup
-    * \brief placehoder for cleanup function
+    * \brief placeholder for cleanup function
     *
     * Virtual cleanup function intended to be overridden by the
     * inheiriting class's cleanup function.

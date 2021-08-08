@@ -108,7 +108,7 @@ configure_file("${qucs-core_SOURCE_DIR}/qucs_typedefs.h.cmake"
                "${qucs-core_BINARY_DIR}/qucs_typedefs.h")
 
 #
-# Check for library functions * not all functons seem to be used after defined.
+# Check for library functions * not all functions seem to be used after defined.
 # TODO check for HAVE_{func}
 #
 include(CheckFunctionExists)

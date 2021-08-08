@@ -478,7 +478,7 @@ DefinitionLine:
     $$->values = $2;
   }
   | TEMP_Action ValueList Eol {
-    /* temperatur analysis (Spice 2g6) */
+    /* temperature analysis (Spice 2g6) */
     $$ = spice_create_action ($1, strdup ($1));
     $$->values = $2;
   }

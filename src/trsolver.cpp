@@ -318,7 +318,7 @@ int trsolver::solve (void)
                 error++;
                 break;
             }
-            // return if any errors occured other than convergence failure
+            // return if any errors occurred other than convergence failure
             if (error) return -1;
 
             // if the step was rejected, the solution loop is restarted here

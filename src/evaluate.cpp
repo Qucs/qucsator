@@ -4692,7 +4692,7 @@ constant * evaluate::assert_b(constant *args)
 {
     _ARB0(b0);
     if(!b0) {
-	THROW_MATH_EXCEPTION ("assert failled");
+	THROW_MATH_EXCEPTION ("assert failed");
 	abort();
      }
      _DEFB ();
@@ -4704,7 +4704,7 @@ constant * evaluate::assert_d(constant *args)
 {
     _ARD0(d0);
     if(d0 == 0.0) {
-        THROW_MATH_EXCEPTION ("assert failled");
+        THROW_MATH_EXCEPTION ("assert failed");
 	abort();
     }
      _DEFB ();
@@ -4716,7 +4716,7 @@ constant * evaluate::assert_v (constant * args) {
   _ARV0 (v0);
   for (int i = 0; i < v0->getSize (); i++) {
     if( v0->get(i) == 0.0 ) {
-	THROW_MATH_EXCEPTION ("assert failled");
+	THROW_MATH_EXCEPTION ("assert failed");
 	abort();
     }
   }
@@ -4729,7 +4729,7 @@ constant * evaluate::bugon_b(constant *args)
 {
     _ARB0(b0);
     if(b0) {
-	THROW_MATH_EXCEPTION ("bugon failled");
+	THROW_MATH_EXCEPTION ("bugon failed");
 	abort();
      }
      _DEFB ();
@@ -4741,7 +4741,7 @@ constant * evaluate::bugon_d(constant *args)
 {
     _ARD0(d0);
     if(d0 != 0.0) {
-	THROW_MATH_EXCEPTION ("bugon failled");
+	THROW_MATH_EXCEPTION ("bugon failed");
 	abort();
      }
      _DEFB ();
@@ -4753,7 +4753,7 @@ constant * evaluate::bugon_v (constant * args) {
   _ARV0 (v0);
   for (int i = 0; i < v0->getSize (); i++) {
     if( v0->get(i) != 0.0 ) {
-	THROW_MATH_EXCEPTION ("bugon failled");
+	THROW_MATH_EXCEPTION ("bugon failed");
 	abort();
     }
   }

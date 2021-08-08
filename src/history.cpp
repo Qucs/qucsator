@@ -104,7 +104,7 @@ nr_double_t history::interpol (nr_double_t tval, int idx, bool left) {
 }
 
 /* The function returns the value nearest to the given time value.  If
-   the otional parameter is true then additionally cubic spline
+   the optional parameter is true then additionally cubic spline
    interpolation is used. */
 nr_double_t history::nearest (nr_double_t tval, bool interpolate) {
   if (t->empty())

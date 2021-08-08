@@ -365,14 +365,14 @@ void hbsolver::expandFrequencies (nr_double_t f, int n) {
 
 // Calculates an order fulfilling the "power of two" requirement.
 int hbsolver::calcOrder (int n) {
-  int o, order = n * 2;             // current order + DC + negative freqencies
+  int o, order = n * 2;             // current order + DC + negative frequencies
   for (o = 1; o < order; o <<= 1) ; // a power of 2
   return o / 2 - 1;
 }
 
 /* The function computes the harmonic frequencies excited in the
    circuit list depending on the maximum number of harmonics per
-   exitation and saves its results into the 'negfreqs' vector. */
+   excitation and saves its results into the 'negfreqs' vector. */
 void hbsolver::collectFrequencies (void) {
 
   // initialization
@@ -385,7 +385,7 @@ void hbsolver::collectFrequencies (void) {
   // obtain order
   int i, n = calcOrder (getPropertyInteger ("n"));
 
-  // expand frequencies for each exitation
+  // expand frequencies for each excitation
   nr_double_t f;
   for (auto * c : excitations) {
     if (c->getType () != CIR_VDC) { // no extra DC sources
@@ -773,7 +773,7 @@ void hbsolver::createMatrixLinearY (void) {
     estack.print ();
   }
 
-  // aquire variable transimpedance matrix entries
+  // acquire variable transimpedance matrix entries
   eqns.setAlgo (ALGO_LU_SUBSTITUTION_CROUT);
   for (c = 0; c < sn; c++) {
     I->set (0.0);
@@ -799,7 +799,7 @@ void hbsolver::createMatrixLinearY (void) {
   // create constant transimpedance matrix entries relating the
   // source voltages to the interconnection currents
   int vsrc = 0;
-  // aquire constant transadmittance matrix entries
+  // acquire constant transadmittance matrix entries
   for (auto it = excitations.begin(); it != excitations.end(); ++it, vsrc++) {
     circuit * vs = *it;
     // get positive and negative node
@@ -1091,7 +1091,7 @@ void hbsolver::loadMatrices (void) {
 
 /* The following function transforms a vector using a Fast Fourier
    Transformation from the time domain to the frequency domain. 
-   \todo rewrite ugly sould die
+   \todo rewrite ugly should die
 */
 void hbsolver::VectorFFT (tvector<nr_complex_t> * V, int isign) {
   int i, k, r;

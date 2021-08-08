@@ -40,8 +40,8 @@
 	refer to voltage sources) in the node list of F and H controlled
 	sources.
 
-	* scan_spice.l: Explicitely scanning suffixes and unit for (real)
-	values in oder to allow e.g. '11x' node names.
+	* scan_spice.l: Explicitly scanning suffixes and unit for (real)
+	values in order to allow e.g. '11x' node names.
 
 	* qucs_producer.cpp: Fixed bug while referencing subcircuits
 	(missing 'X' when it starts with a digit).
@@ -347,7 +347,7 @@
 2006-03-09  Stefan Jahn  <stefan@lkcc.org>
 
 	* csv_producer.cpp (csv_producer): When exporting a dependent
-	variable export it in the last column, the dependecies in the
+	variable export it in the last column, the dependencies in the
 	first columns.
 
 2006-03-05  Stefan Jahn  <stefan@lkcc.org>
@@ -447,7 +447,7 @@
 
 	* qucs_producer.cpp: Fixed reference node implementation in
 	order to pull the ground node outside the circuit definition
-	througout the subcircuits in the original netlist.
+	throughout the subcircuits in the original netlist.
 
 2005-04-27  Stefan Jahn  <stefan@lkcc.org>
 
@@ -484,7 +484,7 @@
 	used to inhibit the output of simulations (actions) into
 	the resulting netlist.
 
-	* parse_spice.y: Almostly implemented all of the Spice
+	* parse_spice.y: Almost implemented all of the Spice
 	'grammar' in the netlist parser.
 
 	* check_spice.cpp: Implemented evaluation of the .OPTIONS

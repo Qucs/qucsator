@@ -144,7 +144,7 @@ struct vcd_file {
 // A VCD variable.
 struct vcd_variable {
   char * code;  // identifier code, references 'var'
-  char * ident; // variable identifer
+  char * ident; // variable identifier
   char * value; // the value
   int isreal;   // indicates type of value
   int type;     // variable type

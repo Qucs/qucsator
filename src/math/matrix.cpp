@@ -40,7 +40,7 @@
       Vol.82, Iss.5, May 1982
       Pages: 661- 666
 
-  [3] Comments on "A Rigorous Techique for Measuring the Scattering
+  [3] Comments on "A Rigorous Technique for Measuring the Scattering
       Matrix of a Multiport Device with a Two-Port Network Analyzer"
       Dropkin, H.
       Microwave Theory and Techniques, IEEE Transactions on,
@@ -113,7 +113,7 @@ matrix::matrix () {
 
     Constructor creates an unnamed instance of the matrix class with a
     certain number of rows and columns.  Particularly creates a square matrix.
-    \param[in] s number of rows or colums of square matrix
+    \param[in] s number of rows or columns of square matrix
     \todo Why not s const?
 */
 matrix::matrix (int s)  {
@@ -651,7 +651,7 @@ matrix pow (matrix a, int n) {
    The cofactor is preceded by a + or - sign depending of the sign
    of \f$(-1)^(u+v)\f$
 
-   \bug This algortihm is recursive! Stack overfull!
+   \bug This algorithm is recursive! Stack overfull!
    \todo ((u + v) & 1) is cryptic use (u + v)% 2
    \todo #ifdef 0
    \todo static?
@@ -680,7 +680,7 @@ nr_complex_t cofactor (matrix a, int u, int v) {
 
    See Wikipedia http://en.wikipedia.org/wiki/Laplace_expansion
    \param[in] a matrix
-   \bug This algortihm is recursive! Stack overfull!
+   \bug This algorithm is recursive! Stack overfull!
    \note assert square matrix
    \todo #ifdef 0
    \todo static ?
@@ -794,7 +794,7 @@ matrix inverseLaplace (matrix a) {
    elimination.
    \todo a const?
    \todo static?
-   \note assert non singulat matix
+   \note assert non singulat matrix
    \param[in] a matrix to invert
 */
 matrix inverseGaussJordan (matrix a) {
@@ -1402,7 +1402,7 @@ matrix ytoz (matrix y) {
    \param[in] cy Admittance noise correlation
    \param[in] s S parameter matrix of device
    \return S-parameter noise correlation matrix
-   \note Assert compatiblity of matrix
+   \note Assert compatibility of matrix
    \todo cy s const
 */
 matrix cytocs (matrix cy, matrix s) {
@@ -1455,7 +1455,7 @@ matrix cstocy (matrix cs, matrix y) {
    \param[in] cz Impedance noise correlation
    \param[in] s S parameter matrix of device
    \return S-parameter noise correlation matrix
-   \note Assert compatiblity of matrix
+   \note Assert compatibility of matrix
    \todo cz, s const
 */
 matrix cztocs (matrix cz, matrix s) {
@@ -1711,7 +1711,7 @@ void matrix::setBottomRightCorner(matrix m, int p, int q) {
   This function converts 2x2 matrices from any of the matrix forms Y,
   Z, H, G and A to any other.  Also converts S<->(A, T, H, Y and Z)
   matrices.
-  Convertion assumed:
+  Conversion assumed:
 
   Y->Y, Y->Z, Y->H, Y->G, Y->A, Y->S,
   Z->Y, Z->Z, Z->H, Z->G, Z->A, Z->S,
@@ -1970,7 +1970,7 @@ matrix twoport (matrix m, char in, char out) {
   return res;
 }
 
-/*!\brief Compute the Rollet stabilty factor
+/*!\brief Compute the Rollet stability factor
 
    The function returns the Rollet stability factor (\f$K\f) of the given
    S-parameter matrix:

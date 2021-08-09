@@ -46,7 +46,7 @@ classdef cppinterface < handle
         %% C++ Function Call
         function varargout = cppcall(this, varargin)
             
-            % call the mex funtion with the supplied keyword and the object
+            % call the mex function with the supplied keyword and the object
             % handle
             if numel(varargin) > 1
                 [varargout{1:nargout}] = this.mex_interface_fcn(varargin{1}, this.objectHandle, varargin{2:end});

@@ -2080,7 +2080,7 @@ spice_translate_coupled_x (struct definition_t * root,
   return root;
 }
 
-/* Contructs an edd equation name. */
+/* Constructs an edd equation name. */
 static char *
 spice_create_eqnstr (struct definition_t * def, int p, char type) {
   char * n = (char *) malloc (strlen (def->instance) + 4 + 3);
@@ -2192,7 +2192,7 @@ static char *
 spice_create_poly (struct value_t * prop, int nd, int integrate) {
   struct value_t * val;
 
-  // contruct polynomial expression
+  // construct polynomial expression
   int * pn = (int *) calloc (nd, sizeof (int));
   static char expr[1024];
   char value[256];
@@ -2278,7 +2278,7 @@ spice_translate_poly (struct definition_t * root, struct definition_t * def) {
     nd = (int) spice_evaluate_value (prop);
     spice_value_done (prop);
 
-    // contruct properties, equations and nodes of the EDD
+    // construct properties, equations and nodes of the EDD
     if (type <= 1) {
       // handle E and G voltage controlled sources
       prop = prop->next;
@@ -2341,7 +2341,7 @@ spice_translate_poly (struct definition_t * root, struct definition_t * def) {
     struct definition_t * ieqn, * qeqn;
     root = spice_add_edd_equation (root, def, 1, &ieqn, &qeqn);
 
-    // contruct polynomial expression
+    // construct polynomial expression
     char * expr = spice_create_poly (prop, nd, 0);
 
     // replace first current branch to reflect polynom
@@ -2415,7 +2415,7 @@ spice_translate_poly_lc (struct definition_t * root,
     struct definition_t * ieqn, * qeqn;
     root = spice_add_edd_equation (root, def, 1, &ieqn, &qeqn);
 
-    // contruct polynomial expression
+    // construct polynomial expression
     char * expr1 = strdup (spice_create_poly (prop, 1, 1));
     char * expr2 = expr1;
     if (lc != 0.0) {

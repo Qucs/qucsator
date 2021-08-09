@@ -30,10 +30,10 @@
 
 #include <constants.h>
 
-/**It is prefered to add all used funcions into the qucs namespace.
+/**It is preferred to add all used functions into the qucs namespace.
  * Doing so one is forced do think about compatibility instead of using std directly.
  * Inline is optional at this moment
- * \todo test if inline indeed performace improves (optimization flags should inline them anyway)
+ * \todo test if inline indeed performance improves (optimization flags should inline them anyway)
  */
 
 namespace qucs {

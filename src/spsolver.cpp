@@ -113,7 +113,7 @@ circuit * spsolver::interconnectJoin (node * n1, node * n2) {
   circuit * result = new circuit (s->getSize () - 2);
   nr_complex_t p;
 
-  // allocate S-parameter and noise corellation matrices
+  // allocate S-parameter and noise correlation matrices
   result->initSP (); if (noise) result->initNoiseSP ();
 
   // interconnected port numbers
@@ -176,7 +176,7 @@ circuit * spsolver::connectedJoin (node * n1, node * n2) {
   circuit * result = new circuit (s->getSize () + t->getSize () - 2);
   nr_complex_t p;
 
-  // allocate S-parameter and noise corellation matrices
+  // allocate S-parameter and noise correlation matrices
   result->initSP (); if (noise) result->initNoiseSP ();
 
   // connected port numbers

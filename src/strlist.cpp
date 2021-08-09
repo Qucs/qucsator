@@ -175,7 +175,7 @@ strlist * strlist::join (strlist * pre, strlist * post) {
   return res;
 }
 
-/* The function returns a space seperated string representation of the
+/* The function returns a space separated string representation of the
    string list instance. */
 char * strlist::toString (const char * concat) {
   if (txt) { free (txt); txt = NULL; }

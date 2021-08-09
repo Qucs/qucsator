@@ -82,7 +82,7 @@ static const double sqrt2 = 1.4142135623730950488016887242096981;
 /*!\brief Inverse of Square root of 2 (\f$1/\sqrt{2}\f$) */
 static const double sqrt1_2 = 0.7071067811865475244008443621048490;
 
-/*!\brief Limiting exponetial factor */
+/*!\brief Limiting exponential factor */
 static const double limitexp = 80.0;
 
 /**

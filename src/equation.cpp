@@ -1108,7 +1108,7 @@ void node::append (node * last)
     n->setNext (last);
 }
 
-// Appends othere nodes to the equation node object.
+// Appends other nodes to the equation node object.
 void node::appendNodes (node * last)
 {
     if (!last) return;

@@ -1,5 +1,5 @@
 /*
- * Check whehter you have the complex polar (double, double) function.
+ * Check whether you have the complex polar (double, double) function.
  */
 
 # include <complex>

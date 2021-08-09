@@ -85,7 +85,7 @@ public:
       * \a V.
       *
       * You can set the voltage of ecvs components in subcircuits created
-      * by using a name up of the subcircuit heirarchy it is in, e.g. the
+      * by using a name up of the subcircuit hierarchy it is in, e.g. the
       * name
       *
       * SUBtop.SUBlower.ECVS1

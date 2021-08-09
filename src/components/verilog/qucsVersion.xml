@@ -951,7 +951,7 @@
       <admst:assert test="arguments[2]/adms[datatypename='probe']" format="%(name): second argument is not a probe\n"/>
       <admst:apply-templates select="arguments[1]" match="ddx"/>
       <!--
-      FIXME what does  not-used is suposed do mean??,
+      FIXME what does 'not-used' supposed to mean??,
        partial derivative of a independent variable? if so, return zero...
 
       <admst:variable name="e" select="not-used"/>

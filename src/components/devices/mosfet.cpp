@@ -249,7 +249,7 @@ void mosfet::initModel (void) {
       if (Nsub * 1e6 >= NiSi) {
 	Phi = 2 * Ut * qucs::log (Nsub * 1e6 / NiSi);
       } else {
-	logprint (LOG_STATUS, "WARNING: substrate doping less than instrinsic "
+	logprint (LOG_STATUS, "WARNING: substrate doping less than intrinsic "
 		  "density, adjust Nsub >= %g\n", NiSi / 1e6);
 	Phi = 0.6;
       }

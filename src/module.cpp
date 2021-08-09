@@ -447,7 +447,7 @@ void module::registerDynamicModules (char *proj, std::list<std::string> modlist)
  *   - Add other methods to find the libraries
  *
  * Update
- *  * project path is passed as paramter
+ *  * project path is passed as parameter
  *  * module names are passed as parameter
 */
 

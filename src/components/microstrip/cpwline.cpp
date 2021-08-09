@@ -200,7 +200,7 @@ void cpwline::initPropagation (void) {
   nr_double_t v = 0.43 - (0.86 - 0.54 * p) * p;
   G = qucs::exp (u * qucs::log (W / s) + v);
 
-  // loss constant factors (computed only once for efficency sake)
+  // loss constant factors (computed only once for efficiency sake)
   nr_double_t ac = 0;
   if (t > 0) {
     // equations by GHIONE

@@ -271,7 +271,7 @@
 	* environment.cpp: Added 'passing' attribute to variables in the
 	environment.  Thus computed values in an environment don't get
 	passed from the environment variables, but any others will be
-	passed as ususal (e.g. subcircuit parameters).
+	passed as usual (e.g. subcircuit parameters).
 
 2007-10-02  Stefan Jahn  <stefan@lkcc.org>
 
@@ -315,7 +315,7 @@
 	* differentiate.cpp: Fixed some memory leaks.
 
 	* equation.cpp: Added new property to an equation node 'skip'
-	indicating that the node (e.g. equation assigment) is skipped from
+	indicating that the node (e.g. equation assignment) is skipped from
 	evaluation when the solver is run.
 
 	* environment.cpp: Added new function which just evaluates (no
@@ -418,7 +418,7 @@
 2007-05-02  Stefan Jahn  <stefan@lkcc.org>
 
 	* evaluate.cpp: Using absolute value of complex result in
-	ifthenelse contruct.  This yields the same results as if using
+	ifthenelse construct.  This yields the same results as if using
 	absolute arguments for e.g. sqrt() and ln() if these are negative.
 	Added '!=' and '==' implementations for boolean arguments.
 
@@ -591,7 +591,7 @@
 	process; now trying to resolve that dependencies in the
 	component properties of the netlist.
 	Fixed a segfault bug when trying to detect variable chain of
-	an assigment which is actually not cyclic itself but involves
+	an assignment which is actually not cyclic itself but involves
 	a variable which is cyclic.
 
 	* equation.h (class checker): Add a netlist entries to the
@@ -654,15 +654,15 @@
 	* equation.cpp: New function checking if a given variable name
 	is an equation.
 
-	* environment.cpp: Added children funtionality for environments.
+	* environment.cpp: Added children functionality for environments.
 
 	* check_netlist.cpp: Resolving variables in equations.
-	Creating a real environment tree.  Checking equtions in all
+	Creating a real environment tree.  Checking equations in all
 	subcircuits as well.
 
 2006-10-09  Stefan Jahn  <stefan@lkcc.org>
 
-	* trsolver.cpp: Fixed a bug in the transient solver occuring
+	* trsolver.cpp: Fixed a bug in the transient solver occurring
 	when a components MNA matrix changes during DC and TR (e.g.
 	transmission line).
 
@@ -764,7 +764,7 @@
 
 2006-08-08  Stefan Jahn  <stefan@lkcc.org>
 
-	* parasweep.cpp: Fixed a bug occuring with multi-dimensional
+	* parasweep.cpp: Fixed a bug occurring with multi-dimensional
 	s-parameter sweeps which require a prior dc analysis.  Now the
 	data dependency tracking works again.
 
@@ -957,7 +957,7 @@
 	getRow(), set(val) as well as '+=' and '-=' operators.
 
 	* hbsolver.cpp: Implemented non-linear part of the harmonic
-	balance as far as possible.  All parts of the algorithm adressed
+	balance as far as possible.  All parts of the algorithm addressed
 	but not yet working...
 
 2006-04-06  Stefan Jahn  <stefan@lkcc.org>
@@ -1117,7 +1117,7 @@
 	specifications.
 
 	* scan_netlist.l: Had to revert acceptance of signed real
-	values.  Grammer wouldn't even work for "1+1"... Now implemented
+	values.  Grammar wouldn't even work for "1+1"... Now implemented
 	ranges in the right way.
 
 2006-02-05  Stefan Jahn  <stefan@lkcc.org>

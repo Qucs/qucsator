@@ -54,7 +54,7 @@ m4_define([CHECK_CLANG13530_PROGRAM],dnl
 			     #include <iostream>
 			   ],
 			   [std::cout << "Hello, world!" << std::endl;])])
-AC_MSG_CHECKING([wether c++ compiler is affected by clang bug 13530])
+AC_MSG_CHECKING([whether c++ compiler is affected by clang bug 13530])
 AC_LANG_PUSH(C++)
 AS_IF([test "x$ax_cv_cxx_compiler_vendor" = "xclang"],
       [dnl
@@ -71,7 +71,7 @@ AS_IF([test "x$ax_cv_cxx_compiler_vendor" = "xclang"],
 			[dnl
 			   clang13530_workarround_needed="yes"
 			],
-			[AC_MSG_FAILURE([Cannot compile test suite for clang 13530 even with workarround])])
+			[AC_MSG_FAILURE([Cannot compile test suite for clang 13530 even with workaround])])
 		  AX_RESTORE_FLAGS
 		]dnl
 	)dnl
@@ -186,9 +186,9 @@ AC_ARG_WITH(macosx-sdk,
 			  e. g.: --with-macosx-sdk=10.6
 
 			  there are 3 options to control the MacOSX build:
-			  --with-macosx-sdk (refered as 'sdk' below)
-			  --with-macosx-version-min-required (refered as 'min' below)
-			  --with-macosx-version-max-allowed (refered as 'max' below)
+			  --with-macosx-sdk (referred to as 'sdk' below)
+			  --with-macosx-version-min-required (referred to as 'min' below)
+			  --with-macosx-version-max-allowed (referred to as 'max' below)
 
 			  the connection between these value and the default they take is as follow:
 			  ( ? means not specified on the command line, s means the SDK version found,
@@ -209,7 +209,7 @@ AC_ARG_WITH(macosx-sdk,
 
 
 			  see: http://developer.apple.com/library/mac/#technotes/tn2064/_index.html
-			  for a detailled technical explanation of these variables
+			  for a detailed technical explanation of these variables
 
 			  Note: MACOSX_DEPLOYMENT_TARGET will be set to the value of 'min'.
 
@@ -529,14 +529,14 @@ case $host_os in
 
   AC_MSG_CHECKING([that macosx-version-min-required is coherent with macosx-version-max-allowed])
   if test $MAC_OS_X_VERSION_MIN_REQUIRED -gt $MAC_OS_X_VERSION_MAX_ALLOWED; then
-      AC_MSG_ERROR([the version minimumn required must be inferior or equal to the version maximum allowed])
+      AC_MSG_ERROR([the version minimum required must be inferior or equal to the version maximum allowed])
   else
       AC_MSG_RESULT([ok])
   fi
 
   AC_MSG_CHECKING([that macosx-version-max-allowed is coherent with macos-with-sdk])
   if test $MAC_OS_X_VERSION_MAX_ALLOWED -gt $MACOSX_SDK_VERSION; then
-      AC_MSG_ERROR([the version maximum allowed cannot be greater thatn the sdk level])
+      AC_MSG_ERROR([the version maximum allowed cannot be greater than the sdk level])
   else
       AC_MSG_RESULT([ok])
   fi
@@ -746,7 +746,7 @@ AC_CHECK_FUNCS([ \
 fabs \
 ])
 
-# Bessel funcions (libc ?)
+# Bessel functions (libc ?)
 AC_CHECK_FUNCS([ jn yn ])
 
 # C strings
@@ -805,7 +805,7 @@ dnl  polar \   skip, see below
 dnl C++11
   proj ])
 
-dnl funcions with gwo arguments
+dnl functions with two arguments
 AC_CHECK_CXX_COMPLEX_POW
 AC_CHECK_CXX_COMPLEX_ATAN2
 AC_CHECK_CXX_COMPLEX_FMOD
@@ -813,7 +813,7 @@ AC_CHECK_CXX_COMPLEX_POLAR
 AC_CHECK_CXX_COMPLEX_POLAR_COMPLEX
 
 
-dnl Depending on the implementation, funcions may or may not be included on the std namespace
+dnl Depending on the implementation, functions may or may not be included on the std namespace
 AC_MSG_NOTICE([Check for functions in std:: namespace])
  for f in std::acosh std::asinh std::atanh std::hypot std::trunc std::round std::erf std::erfc; do
     AC_MSG_CHECKING([for $f])

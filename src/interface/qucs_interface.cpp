@@ -95,7 +95,7 @@ qucsint::~qucsint ()
     netlist_destroy_env ();
 }
 
-/*!\ todo: replace "root" by / as environement root */
+/*!\ todo: replace "root" by / as environment root */
 int qucsint::prepare_netlist (char * infile)
 {
 

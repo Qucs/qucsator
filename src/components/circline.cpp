@@ -30,7 +30,7 @@
 /*
 References:
 Microwave Engineering. David M Pozar. John Wiley and Sons. 4th Edition. Pg 121-130
-Fundation for Microwave Engineering. IEEE Press. Robert E. Collin. 2d edition. Pg 194-198
+Foundation for Microwave Engineering. IEEE Press. Robert E. Collin. 2d edition. Pg 194-198
        1992
 */
 

@@ -113,7 +113,7 @@ class circuit : public object, public integrator
   // functionality to be overloaded by real, derived circuit element
   // implementations
   /*! \fn initSP
-   * \brief placehoder for S-Parameter initialisation function
+   * \brief placeholder for S-Parameter initialisation function
    *
    * Virtual function intended to be overridden by the
    * inheiriting circuit element's S-Parameter initialisation
@@ -172,7 +172,7 @@ class circuit : public object, public integrator
    */
   bool   isEnabled (void) { return RETFLAG (CIRCUIT_ENABLED); }
   /*! \fn setEnabled
-   * \brief Set a circuit element to be enabled or diabled.
+   * \brief Set a circuit element to be enabled or disabled.
    * \param e boolean indicating whether to enable or disable
    *
    * Sets the circuit element to be enabled or disabled.

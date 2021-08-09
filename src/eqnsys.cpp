@@ -1367,7 +1367,7 @@ void eqnsys<nr_type_t>::givens_apply_v (int r1, int r2,
   }
 }
 
-/*! This function diagonalizes the upper bidiagonal matrix fromed by
+/*! This function diagonalizes the upper bidiagonal matrix formed by
    the diagonal S and the super-diagonal vector E.  Both vectors are
    real valued.  Thus real valued calculations even when solving a
    complex valued equation systems is possible except for the matrix

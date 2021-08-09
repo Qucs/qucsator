@@ -274,11 +274,11 @@ nr_complex_t sqrt (const nr_complex_t z)
 }
 
 
-/*!\brief Compute euclidian norm of complex number
+/*!\brief Compute euclidean norm of complex number
 
    Compute \f$(\Re\mathrm{e}\;z )^2+ (\Im\mathrm{m}\;z)^2=|z|^2\f$
    \param[in] z Complex number
-   \return Euclidian norm of z
+   \return Euclidean norm of z
 */
 nr_double_t norm (const nr_complex_t z)
 {
@@ -349,7 +349,7 @@ nr_complex_t sech (const nr_complex_t z)
 
    \param[in] z complex arc
    \return argument hyperbolic secant of z
-   \todo for symetry reason implement sech
+   \todo for symmetry reason implement sech
 */
 nr_complex_t asech (const nr_complex_t z)
 {

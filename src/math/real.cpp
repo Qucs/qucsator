@@ -480,11 +480,11 @@ nr_double_t imag (const nr_double_t r) {
   return 0.0;
 }
 
-/*!\brief Compute euclidian norm of real number
+/*!\brief Compute euclidean norm of real number
 
    Compute \f$r^2\f$
    \param[in] r Real number
-   \return Euclidian norm of r
+   \return Euclidean norm of r
 */
 nr_double_t norm (const nr_double_t r) {
   return r * r;

@@ -56,7 +56,7 @@ void taperedline::calcABCDparams(nr_double_t frequency)
   nr_double_t beta = 2*pi*frequency/C0; //Propagation constant
   nr_complex_t gamma = nr_complex_t (alpha, beta); //Complex propagation constant
   matrix ABCD_ = eye(2);//Overall ABCD matrix
-  matrix ABCDaux = eye(2);//Auxiliar matrix for performing the iterative product
+  matrix ABCDaux = eye(2);//Auxiliary matrix for performing the iterative product
   nr_double_t Zi;
   nr_complex_t a, b, c, d;
   // ABCD coefficients
@@ -172,7 +172,7 @@ nr_double_t L = getPropertyDouble ("L");//Length
 }
 
 //------------------------------------------------------------------
-// Auxiliar function for Klopfenstein profile calculation
+// Auxiliary function for Klopfenstein profile calculation
 // The recursive calculation algorithm is from
 //   Grossberg, M. A., "Extremely rapid computation of the Klopfenstein
 //   impedance taper," IEEE Proc., vol.56, no.9, pp.1629-1630, Sept. 1968

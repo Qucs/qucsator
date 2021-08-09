@@ -147,8 +147,8 @@ endif()
 # ~~~
 # Need Bison
 #
-# This is a HACK to get arround a PATH issue with Qt Creator on OSX.
-# It seams impossible to pass a custom PATH to Qt Creator on OSX, ie, cannot prepend `/usr/local/bin/` for intance.
+# This is a HACK to get around a PATH issue with Qt Creator on OSX.
+# It seams impossible to pass a custom PATH to Qt Creator on OSX, ie, cannot prepend `/usr/local/bin/` for instance.
 # The FIND_PACKAGE fails. For now we provide a fallback with a custom FIND_PROGRAM.
 # The variable BISON_DIR is also available.
 # ~~~
@@ -193,7 +193,7 @@ endif()
 # Check if admsXml is available
 #
 # * Use -DADMSXML_DIR=[path] to give the path containing admsXml
-# * Try a few othe locations
+# * Try a few other locations
 #
 find_program(
   ADMSXML admsXml
@@ -241,7 +241,7 @@ endif()
 # Initialize CXXFLAGS.
 
 # \todo fix headers and use standard C++ methods * strdup is not C or C++
-# standart, it is POSIX adding -fpermissive let it compile with a ton of
+# standard, it is POSIX adding -fpermissive let it compile with a ton of
 # warnings * problem with non-starndart _stricmp using -stdr=c++0x set g++ into
 # strict ANSY, relax that with -U__STRICT_ANSI__. Could use -std=gnu++0x
 # ~~~
@@ -273,7 +273,7 @@ else()
 endif()
 
 #
-# Set position independed code PIC
+# Set position independent code PIC
 #
 if(UNIX AND NOT APPLE)
   if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")

@@ -118,7 +118,7 @@ electrical n1, n2, n3, n4;
  parameter real Rstc = 0 from [-inf : inf]
   `attr(info="source resistance temperature coefficient" unit = "1/Celsius");
  parameter real Ibv = 1e-3 from [1e-25 : inf]
-  `attr(info="gate reverse breakdown currrent" unit = "A");
+  `attr(info="gate reverse breakdown current" unit = "A");
  parameter real Rf = 10 from [1e-9 : inf]
   `attr(info="forward bias slope resistance" unit = "Ohms");
  parameter real R1 = 10 from [1e-9 : inf]

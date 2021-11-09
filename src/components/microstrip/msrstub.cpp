@@ -116,17 +116,25 @@ nr_complex_t msrstub::calcZ (nr_double_t frequency) {
 
 
   if (!strcmp (Model, "March")) {
+
+    // effective dielectric constant of line with width (r_o + r_i) * sin(phi/2)
+    nr_double_t w_eq_stub = (r_o + r_i) * qucs::sin(phi/2);
+    nr_double_t u_eq_stub = w_eq_stub / h;
+    nr_double_t a_feed_eq_stub = 1.0 + 1.0/49.0 * qucs::log((qucs::pow(u_eq_stub, 4.0) + qucs::pow(u_eq_stub/52.0, 2.0)) / (qucs::pow(u_eq_stub, 4.0) + 0.432)) + 1.0/18.7 * qucs::log(1.0 + qucs::pow(u_eq_stub/18.1, 3.0));
+    nr_double_t b_feed_eq_stub = 0.564 * qucs::pow((eps_r - 0.9) / (eps_r + 3), 0.053);
+    nr_double_t eps_e1_eq_stub = (eps_r + 1.0) / 2.0 + (eps_r - 1.0) / 2.0 * qucs::pow(1.0 + 10.0/u_eq_stub, -a_feed_eq_stub * b_feed_eq_stub);    
+    nr_double_t eps_e_eq_stub = eps_e1_eq_stub; // TODO, eq 4.6 - skipped the correction (copper thickness?), to clarify, maybe check https://pure.tue.nl/ws/files/46936050/640261-1.pdf
     //complex propagation constant (with losses):
     nr_double_t depth = qucs::sqrt(resist / (pi * frequency * 1 * MU0)); //calculate skin depth (assume mu relative 1)
     if(depth > t)
       depth = t;
     nr_double_t Rsurf = resist / depth; //surface resistivity
-    nr_double_t k_beta = 2 * pi * frequency * qucs::sqrt(eps_r) / C0; //real part of complex wavenumber
-    nr_double_t k_alpha = Rsurf * qucs::sqrt(eps_r) / (Z0) + k_beta / 2 * loss_tan; //imaginary part of complex wavenumber (losses)
-    nr_complex_t k = nr_complex_t(k_beta, k_alpha);
+    nr_double_t k_beta = 2 * pi * frequency * qucs::sqrt(eps_e_eq_stub) / C0; //real part of complex wavenumber
+    nr_double_t k_alpha = Rsurf * qucs::sqrt(eps_e_eq_stub) / (Z0) + k_beta / 2 * loss_tan; //imaginary part of complex wavenumber (losses)
+    nr_complex_t k = nr_complex_t(k_beta, -k_alpha);
 
     //impedance calculation 
-    nr_double_t Z0_rie = Z0 * h / (r_ie * phi * qucs::sqrt(eps_r));
+    nr_double_t Z0_rie = Z0 * h / (r_ie * phi * qucs::sqrt(eps_e_eq_stub));
     nr_complex_t cot_krie_kroe = (yn(0, k * r_ie) * jn(1, k * r_oe) - jn(0, k * r_ie) * yn(1, k * r_oe)) /
     (jn(1, k * r_ie) * yn(1, k * r_oe) - yn(1, k * r_ie) * jn(1, k * r_oe));
     nr_complex_t Zin = nr_complex_t(0, -1) * Z0_rie * cot_krie_kroe;
@@ -333,3 +341,4 @@ struct define_t msrstub::cirdef =
 // A New Simple and Accurate Formula for Microstrip Radial Stub, Roberto Sorrentino, Luca Roselli
 // A Crooked U-Slot Dual-Band Antenna With RadialStub Feeding, Hyo Rim Bae, Soon One So, Choon Sik Cho, Member, IEEE, Jae W. Lee, Member, IEEE, and Jaeheung Kim, Member, IEEE
 // Performance Characterization of Radial Stub Microstrip Bow-Tie Antenna, B.T.P.Madhav, 2S.S.Mohan Reddy, 3Neha Sharma, 3J. Ravindranath Chowdary 3Bala Rama Pavithra, 3K.N.V.S. Kishore, 3G. Sriram, 3B. Sachin Kumar 1Associate Professor, Department of ECE, K L University, Guntur DT, AP, India 2Associate Professor, Department of ECE, SRKR Engineering College, Bhimavaram, AP, India 3Project Students, Department of ECE, K L University, Guntur DT, AP, India, Performance Characterization of Radial Stub Microstrip Bow-Tie Antenna. Available from: https://www.researchgate.net/publication/286889155_Performance_Characterization_of_Radial_Stub_Microstrip_Bow-Tie_Antenna [accessed Oct 19 2021].
+//https://www.jpier.org/PIERL/view/12012009/

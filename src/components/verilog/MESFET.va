@@ -12,7 +12,13 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
-// 
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
  module MESFET (Drain, Gate, Source);
  inout Drain, Gate, Source;
 //
@@ -22,7 +28,6 @@ electrical Drain, Gate, Source;
 //
 electrical n1, n2, n3, n4;
 //
- `define attr(txt) (*txt*)
  `define GMIN 1e-12
  `define CTOK 273.15
  `define K1 7.02e-4
@@ -160,7 +165,8 @@ branch (n4, Source) b9;
 //
 analog begin
 //
-Vmax=min(Fc*Vbi, Vmax);
+real Vmax2;
+Vmax2=min(Fc*Vbi, Vmax);
 T1=Tnom+`CTOK;
 T2=$temperature;
 Tr=T2/T1;
@@ -317,7 +323,7 @@ if (QLEVELS==2) begin
 if (QLEVELS==3) begin
 		 Veff1=0.5*( V(b4)+V(b6)+sqrt( pow( V(b4)-V(b6), 2.0)+Vdelta1*Vdelta1 ) );
 		 Vnew =0.5*( Veff1+Vto_T2+sqrt( pow( Veff1-Vto, 2.0 )+Vdelta2*Vdelta2 ) );
-		 if (Vnew>Vmax) Qgs=Cgs_T2*(2*Vbi_T2*(1-sqrt( 1-Vmax/Vbi_T2 ) )+(Vnew-Vmax)/sqrt(1-Vmax/Vbi) );
+		 if (Vnew>Vmax2) Qgs=Cgs_T2*(2*Vbi_T2*(1-sqrt( 1-Vmax2/Vbi_T2 ) )+(Vnew-Vmax2)/sqrt(1-Vmax2/Vbi) );
 		 else Qgs=Cgs_T2*2*Vbi*( 1-sqrt( 1-Vnew/Vbi));
 	        end
 //

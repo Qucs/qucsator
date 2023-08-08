@@ -11,15 +11,21 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module dmux3to8 (EN, A, B, C, Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0); 
  inout EN, A, B, C, Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0;
  electrical EN, A, B, C, Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0;
  electrical Y0n1, Y0n2, Y1n1, Y1n2, Y2n1, Y2n2, Y3n1, Y3n2;
  electrical Y4n1, Y4n2, Y5n1, Y5n2, Y6n1, Y6n2, Y7n1, Y7n2;
 //
- `define attr(txt) (*txt*)
  parameter real TR=6 from [1.0:20.0] `attr(info="transfer function high scaling factor");
- parameter real Delay = 1n from [0: inf] `attr(info="output delay" unit="s");
+ parameter real Delay = 1e-9 from [0: inf] `attr(info="output delay" unit="s");
 //
  real Rd, Cd, VENI, VAI, VBI, VCI, IY0, IY1, IY2, IY3, IY4, IY5, IY6, IY7;
 //

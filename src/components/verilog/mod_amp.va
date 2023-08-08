@@ -10,13 +10,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
- // 
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
  module mod_amp (in_p, in_n, out_p);
  inout in_p, in_n, out_p;
  electrical in_p, in_n, out_p;
  electrical n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12;
- //   
- `define attr(txt) (*txt*)
  //
  parameter real GBP =1e6 from [1 : inf]
   `attr(info="Gain bandwidth product (Hz)");

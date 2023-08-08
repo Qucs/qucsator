@@ -13,11 +13,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module DLS_nto1 (Lin, Lout); 
  inout Lin, Lout;
  electrical Lin, Lout;
  electrical n1, n2;
- `define attr(txt) (*txt*)
  parameter real LEVEL=5 from [1:inf] `attr(info= "voltage level" unit="V");
  parameter real Delay = 1e-9 from [0: inf] `attr(info="time delay" unit="s");
 //

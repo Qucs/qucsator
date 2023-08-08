@@ -11,12 +11,18 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module pad4bit (D, C, B, A); 
  inout D, C, B, A;
  electrical D, C, B, A;
 // electrical An1, An2, Bn1, Bn2, Cn1, Cn2, Dn1, Dn2;
 //
- `define attr(txt) (*txt*)
  parameter integer Number = 0 from [0 : 15] `attr(info="pad output value");
 //
  real IA, IB, IC, ID;

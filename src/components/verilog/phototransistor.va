@@ -12,11 +12,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module phototransistor (Collector, Base, Emitter, Power, Wavelength); 
  inout Collector, Base, Emitter, Power, Wavelength;
  electrical Collector, Base, Emitter, Power, Wavelength;
  electrical CI, BI, BI2, EI;
- `define attr(txt) (*txt*)
 //
  parameter real Bf=100 from [1:inf]               `attr(info="forward beta");
  parameter real Br=0.1 from [1e-6:inf]            `attr(info="reverse beta");
@@ -31,8 +37,8 @@ module phototransistor (Collector, Base, Emitter, Power, Wavelength);
  parameter real Mjc=0.33 from [1e-6:inf]          `attr(info="base-collector junction exponential factor");
  parameter real Vjc=0.75 from [1e-6:inf]          `attr(info="base-collector junction built-in potential" unit="V" );
  parameter real Cjc=2e-12 from [0:inf]            `attr(info="base-collector zero-bias depletion capacitance" unit="F");
- parameter real Tr=100n  from [1e-15:inf]         `attr(info="ideal reverse transit time" unit="s");
- parameter real Tf=0.1n  from [1e-15:inf]         `attr(info="ideal forward transit time" unit="s");
+ parameter real Tr=100e-9  from [1e-15:inf]       `attr(info="ideal reverse transit time" unit="s");
+ parameter real Tf=0.1e-9  from [1e-15:inf]       `attr(info="ideal forward transit time" unit="s");
  parameter real Ikf=10 from [1e-20:inf]           `attr(info="high current corner for forward beta" unit="A");
  parameter real Ikr=10 from [1e-20:inf]           `attr(info="high current corner for reverse beta" unit="A");
  parameter real Rc=10 from [1e-9:inf]             `attr(info="collector series resistance" unit="Ohm");

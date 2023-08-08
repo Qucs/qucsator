@@ -11,11 +11,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module pad2bit (B, A); 
  inout B, A;
  electrical B, A;
 //
- `define attr(txt) (*txt*)
  parameter integer Number = 0 from [0 : 15] `attr(info="pad output value");
 //
  real IA, IB;

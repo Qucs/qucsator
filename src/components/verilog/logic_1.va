@@ -12,10 +12,16 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module logic_1 (L1); 
  inout L1;
  electrical L1;
- `define attr(txt) (*txt*)
  parameter real LEVEL=1 from [-inf:inf] `attr(info= "logic 1 voltage level" unit="V");
 //
 analog begin

@@ -15,13 +15,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
-//
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module vcresistor (C1, C2, P1, P2);
 inout P1, P2;
 input C1, C2;
 electrical C1, C2, P1, P2;
-
-`define attr(txt) (*txt*)
 //
 parameter real gain = 1 from [1e-6 : inf]
   `attr(info="Gain" unit = "Ohm/Volt");

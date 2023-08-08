@@ -16,7 +16,13 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
-// 
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
  module log_amp (P_I1, P_Ir, P_Vout);
  inout P_I1, P_Ir;
  inout P_Vout;
@@ -27,8 +33,6 @@
 //
  electrical n3, n4;
 //
-//   
- `define attr(txt) (*txt*)
 //
  parameter real Kv = 1.0 from [-inf : inf]
   `attr(info="scale factor");

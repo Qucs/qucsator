@@ -18,10 +18,12 @@
  `define P(p) (*p*)
  `define PGIVEN(p)	$given(p)
  `define INITIAL_MODEL	@(initial_model)
+ `define attr(txt) (*txt*)
 `else
  `define P(p)
  `define PGIVEN(p)	p
  `define INITIAL_MODEL	@(initial_step)
+ `define attr(txt)
 `endif
 
 // dielectric permittivity of silicon
@@ -41,8 +43,6 @@ module nigbt (C, G, E);
   electrical e, b;
   // system variables
   electrical var_Ql, var_Mucinv, var_Nsat, var_dVecdt;
-
-  `define attr(txt) (*txt*)
 
   // device parameters
   parameter real Agd = 5.0e-6 from (0 : inf]

@@ -16,7 +16,13 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
-// 
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
  module potentiometer (B, M, T);
  inout B, M, T;
 //
@@ -25,9 +31,6 @@
 // Internal nodes
 //
  electrical n1;
-//
-//   
- `define attr(txt) (*txt*)
 //
  parameter real R_pot = 1e4 from [1e-6 : inf]
   `attr(info="nominal device resistance" unit = "Ohm");

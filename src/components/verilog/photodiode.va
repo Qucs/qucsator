@@ -11,11 +11,17 @@
 //
 `include "disciplines.vams"
 `include "constants.vams"
+
+`ifdef insideADMS
+`define attr(txt) (*txt*)
+`else
+`define attr(txt)
+`endif
+
 module photodiode (Anode, Cathode, Light); 
  inout Anode, Cathode, Light;
  electrical Anode, Cathode, Light;
  electrical n1;
- `define attr(txt) (*txt*)
 //
  parameter real N=1.35 from [1e-6:inf]            `attr(info="photodiode emission coefficient");
  parameter real Rseries=1e-3 from [1e-6:inf]      `attr(info="series lead resistance" unit = "Ohm");
@@ -76,7 +82,7 @@ analog begin
    con4=Fc*Vj;
    con5=Fc*Vj_T2;
    con6=Bv/Vt_T2;
- end;
+ end
 // Current contributions
 V1=V(b1);
 I1=(V1 > con1) ? con2*(limexp(V1/(N*Vt_T2))-1.0)+GMIN*V1: 0;

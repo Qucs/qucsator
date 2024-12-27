@@ -28,7 +28,7 @@ AC_PREFIX_DEFAULT([/usr/local])
 test "x$prefix" = xNONE && prefix="/usr/local"
 
 dnl Checks for programs.
-AC_PROG_CXX(clang++ g++)
+AC_PROG_CXX()
 AX_CXX_COMPILE_STDCXX_11
 AC_PROG_CC
 AC_PROG_LN_S

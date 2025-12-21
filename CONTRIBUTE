@@ -1,0 +1,13 @@
+The goal of this repo is to provide and maintain an archived, legacy and
+working Qucsator reference implementation.
+
+Patches will be accepted (as time permits) given they fix obvious bugs or build
+issues. To speed up the process, please provide necessary information about the
+system. Please share some kind of test or prodecure that demonstrates that a
+patch has the desired effect and that there are no side effects. Normally a
+simplistic Qucsator input file will do as a test. Qucs produces such files in
+~/.qucs/netlist.txt.
+
+New feature requests and new features should be targeted to maintained forks
+(such as Qucsator_rf) or to Qucsator replacements (such as Gnucsator). See also
+Qucs/ROADMAP.

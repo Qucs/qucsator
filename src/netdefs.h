@@ -168,6 +168,10 @@ struct define_t {
 		 "Schneider", "Pramanick", "Hammerstad")
 #define PROP_RNG_MOD \
   PROP_RNG_STR3 ("Wheeler", "Schneider", "Hammerstad")
+#define PROP_RNG_MRSCORR \
+  PROP_RNG_STR3 ("Chew_Kong", "Giannini", "OldQucsNoCorrection")
+#define PROP_RNG_MRSMOD \
+  PROP_RNG_STR3 ("March", "Giannini", "OldQucsModel")
 
 #define PROP_NONE         -1
 #define PROP_INT          0
